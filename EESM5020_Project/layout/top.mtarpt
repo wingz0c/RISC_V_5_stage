@@ -1,0 +1,19 @@
+VERSION {1.0}
+PTDEF {instance} {pin} {cell} {edge} {clock_edge} {clock} {phase}
+BANNER
+  {Module} {processor}
+  {Timing} {LATE}
+  {Slew Propagation} {WORST}
+  {Operating Condition} {slow}
+  {PVT Mode} {max}
+  {Tree Type} {balanced}
+  {Process} {1.000}
+  {Voltage} {0.950}
+  {Temperature} {125.000}
+  {time unit} {1.000 ns}
+  {capacitance unit} {1.000 fF}
+  {resistance unit} {1.000 MOhm}
+  {TOOL} {v20.10-p004_1 ((64bit) 05/07/2020 20:02 (Linux 2.6.32-431.11.2.el6.x86_64))}
+  {DATE} {May 30, 2022}
+END_BANNER
+

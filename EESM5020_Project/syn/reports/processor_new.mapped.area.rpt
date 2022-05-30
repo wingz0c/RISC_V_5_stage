@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : processor
+Version: P-2019.03-SP5
+Date   : Mon May 30 17:00:19 2022
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.db)
+
+Number of ports:                          871
+Number of nets:                          4497
+Number of cells:                         3231
+Number of combinational cells:           2180
+Number of sequential cells:               809
+Number of macros/black boxes:               0
+Number of buf/inv:                        325
+Number of references:                      20
+
+Combinational area:               2644.572047
+Buf/Inv area:                      188.062000
+Noncombinational area:            3731.448039
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  6376.020086
+Total area:                 undefined
+1

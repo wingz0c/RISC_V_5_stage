@@ -1,0 +1,1323 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version P-2019.03-SP5 for linux64 - Oct 17, 2019 
+
+                    Copyright (c) 1988 - 2019 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+################################################################################
+# Filename: dc.tcl
+# Author: ZHU Jingyang
+# Email: jzhuak@connect.ust.hk
+# Affiliation: Hong Kong University of Science and Technology
+# -------------------------------------------------------------------------------
+# This is the template Design Compiler script for ELEC5160/EESM5020.
+################################################################################
+################################################################################
+# Step 0: create directories for results and reports
+################################################################################
+file mkdir reports; # store area, timing, power reports
+file mkdir results; # store design
+################################################################################
+# Step 1: digital standard cell library set up
+# You should specify the following paths accordingly:
+# - search_path
+# - target_library
+# - link_library
+################################################################################
+set_app_var search_path ". /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM ../rtl $search_path"
+. /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM ../rtl . /usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn /usr/eelocal/synopsys/syn-vp2019.03-sp5/dw/syn_ver /usr/eelocal/synopsys/syn-vp2019.03-sp5/dw/sim_ver
+set_app_var target_library "NangateOpenCellLibrary_slow.db"
+NangateOpenCellLibrary_slow.db
+set_app_var synthetic_library dw_foundation.sldb
+dw_foundation.sldb
+set_app_var link_library "* $target_library $synthetic_library"
+* NangateOpenCellLibrary_slow.db dw_foundation.sldb
+################################################################################
+# Step 2: import design
+# You should specify the HDL files for your design accordingly.
+# Note: the HDL files should be located in the search_path you defined above.
+# Please do NOT import testbench or behavior memory model here.
+################################################################################
+define_design_lib WORK -path ./WORK
+1
+analyze -format verilog {processor_new.v}
+Running PRESTO HDLC
+Compiling source file ../rtl/processor_new.v
+Presto compilation completed successfully.
+Loading db file '/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.db'
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/dw_foundation.sldb'
+1
+elaborate processor; # top module name
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/gtech.db'
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (processor)
+Elaborated 1 design.
+Current design is now 'processor'.
+Information: Building the design 'pc'. (HDL-193)
+Warning:  ../rtl/processor_new.v:151: Statement unreachable (Prior branch conditions are always met).  (VER-61)
+Presto compilation completed successfully. (pc)
+Information: Building the design 'instructionMemory'. (HDL-193)
+
+Inferred memory devices in process
+	in routine instructionMemory line 627 in file
+		'../rtl/processor_new.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   instruction_reg   | Latch |  160  |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Presto compilation completed successfully. (instructionMemory)
+Information: Building the design 'IFID'. (HDL-193)
+
+Inferred memory devices in process
+	in routine IFID line 666 in file
+		'../rtl/processor_new.v'.
+======================================================================================
+|       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+======================================================================================
+|  temp_programCounter_reg   | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+| temp_instructionMemory_reg | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+======================================================================================
+Presto compilation completed successfully. (IFID)
+Information: Building the design 'hazardUnit'. (HDL-193)
+Presto compilation completed successfully. (hazardUnit)
+Information: Building the design 'registerFile'. (HDL-193)
+
+Inferred memory devices in process
+	in routine registerFile line 164 in file
+		'../rtl/processor_new.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sregister_reg    | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine registerFile line 192 in file
+		'../rtl/processor_new.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|    register_reg     | Latch |  128  |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| registerFile/194 |   16   |    8    |      4       |
+| registerFile/195 |   16   |    8    |      4       |
+| registerFile/196 |   16   |    8    |      4       |
+======================================================
+Presto compilation completed successfully. (registerFile)
+Information: Building the design 'Control'. (HDL-193)
+
+Statistics for case statements in always block at line 220 in file
+	'../rtl/processor_new.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           222            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (Control)
+Information: Building the design 'mux2to1'. (HDL-193)
+Presto compilation completed successfully. (mux2to1)
+Information: Building the design 'Imm_gen'. (HDL-193)
+$display output: Out Imm: ?
+
+Statistics for case statements in always block at line 113 in file
+	'../rtl/processor_new.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           115            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (Imm_gen)
+Information: Building the design 'muxHazard'. (HDL-193)
+Warning:  ../rtl/processor_new.v:709: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 708 in file
+	'../rtl/processor_new.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           709            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine muxHazard line 708 in file
+		'../rtl/processor_new.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|     PCSrc_o_reg     | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+|    ImmSel_o_reg     | Latch |   2   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Presto compilation completed successfully. (muxHazard)
+Information: Building the design 'mux4to1'. (HDL-193)
+Presto compilation completed successfully. (mux4to1)
+Information: Building the design 'IDEX'. (HDL-193)
+
+Inferred memory devices in process
+	in routine IDEX line 381 in file
+		'../rtl/processor_new.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| sIDEX_MemWrite_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| sIDEX_RegWrite_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| sIDEX_MemToReg_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    sIDEX_pc_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sIDEX_Rd_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sIDEX_Rs1_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sIDEX_Rs2_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sIDEX_imm_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_Rdata1_reg   | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_Rdata2_reg   | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_opCode_reg   | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_funct7_reg   | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_funct3_reg   | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   sIDEX_ALUOp_reg   | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_ALUSrc_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_RegDst_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   sIDEX_PCSrc_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  sIDEX_MemRead_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (IDEX)
+Information: Building the design 'EXMEM'. (HDL-193)
+
+Inferred memory devices in process
+	in routine EXMEM line 505 in file
+		'../rtl/processor_new.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| s_EXMEM_MemToReg_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  s_EXMEM_PCSrc_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   s_EXMEM_ALU_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  s_EXMEM_Rdata2_reg  | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    s_EXMEM_Rd_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+| s_EXMEM_MemRead_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| s_EXMEM_MemWrite_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| s_EXMEM_RegWrite_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (EXMEM)
+Information: Building the design 'mux2to1_5bit'. (HDL-193)
+Presto compilation completed successfully. (mux2to1_5bit)
+Information: Building the design 'ALU'. (HDL-193)
+Warning:  ../rtl/processor_new.v:852: signed to unsigned assignment occurs. (VER-318)
+$display output: Rs1:? Rs2:? ALUResult:? 
+
+Statistics for case statements in always block at line 762 in file
+	'../rtl/processor_new.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           766            |    auto/auto     |
+|           769            |     no/auto      |
+|           789            |    auto/auto     |
+|           827            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine ALU line 762 in file
+		'../rtl/processor_new.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|     data_o_reg      | Latch |   8   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Presto compilation completed successfully. (ALU)
+Information: Building the design 'forwardunit'. (HDL-193)
+Presto compilation completed successfully. (forwardunit)
+Information: Building the design 'data_memory'. (HDL-193)
+Warning:  ../rtl/processor_new.v:331: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine data_memory line 326 in file
+		'../rtl/processor_new.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   sread_data_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sMEMO_reg      | Flip-flop |  169  |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sMEMO_reg      | Flip-flop |  71   |  Y  | N  | N  | Y  | N  | N  | N  |
+|      sMEMO_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_memory line 342 in file
+		'../rtl/processor_new.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    read_data_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      MEMO_reg       | Flip-flop |  248  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| data_memory/337  |   32   |   16    |      5       |
+======================================================
+Presto compilation completed successfully. (data_memory)
+Information: Building the design 'MEMWB'. (HDL-193)
+
+Inferred memory devices in process
+	in routine MEMWB line 561 in file
+		'../rtl/processor_new.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| sMEMWB_RegWrite_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| sMEMWB_MemToReg_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   sMEMWB_ALU_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+| sMEMWB_ReadData_reg | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sMEMWB_Rd_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (MEMWB)
+1
+# store the unmapped results
+write -hierarchy -format ddc -output results/processor_new.unmapped.ddc
+Writing ddc file 'results/processor_new.unmapped.ddc'.
+1
+################################################################################
+# Step 3: constrain your design
+# You should specify the critical path, the input & output delay and the
+# environment attribute of your design, so that Design Compiler can correctly
+# synthesize your design with the required specfication.
+################################################################################
+# All the constraints are written in the following tcl script
+source divider.constraints.tcl
+1
+################################################################################
+# Create default path groups
+#
+# Seperate these paths can help improve optimization results.
+################################################################################
+set ports_clock_root   [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+{clk}
+group_path -name REGOUT -to [all_outputs]
+1
+group_path -name REGIN -from [remove_from_collection [all_inputs]   ${ports_clock_root}]
+1
+group_path -name FEEDTHROUGH -from   [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+1
+################################################################################
+# Apply Additional Optimization Constraints
+################################################################################
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+################################################################################
+# Check for Design Errors. It is a good habit to check the design before you run
+# the synthesis.
+################################################################################
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     P-2019.03-SP5
+Date:        Mon May 30 17:00:02 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     35
+    Unconnected ports (LINT-28)                                    31
+    Shorted outputs (LINT-31)                                       4
+
+Cells                                                              33
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  8
+    Cells have undriven hier pins (LINT-59)                         8
+
+Nets                                                               27
+    Unloaded nets (LINT-2)                                         19
+    Undriven nets (LINT-3)                                          8
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > reports/processor_new.check_design.rpt; # dump to the file
+################################################################################
+# Step 4: compile the design
+# There exits lots of option for compile command. Please check the manual of
+# compile for further info.
+################################################################################
+compile
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | P-2019.03-DWBB_201903.4 |     *     |
+| Licensed DW Building Blocks        | P-2019.03-DWBB_201903.4 |     *     |
+============================================================================
+
+
+Information: There are 95 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mux2to1_0'
+  Processing 'MEMWB'
+  Processing 'data_memory'
+  Processing 'forwardunit'
+Information: Added key list 'DesignWare' to design 'forwardunit'. (DDB-72)
+  Processing 'ALU'
+  Processing 'mux2to1_5bit'
+  Processing 'EXMEM'
+  Processing 'IDEX'
+  Processing 'mux4to1_0'
+  Processing 'muxHazard'
+Information: The register 'PCSrc_o_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'ImmSel_o_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ImmSel_o_reg[0]' is a constant and will be removed. (OPT-1206)
+  Processing 'Imm_gen'
+  Processing 'Control'
+  Processing 'registerFile'
+  Processing 'hazardUnit'
+Information: Added key list 'DesignWare' to design 'hazardUnit'. (DDB-72)
+  Processing 'IFID'
+  Processing 'instructionMemory'
+Information: The register 'instruction_reg[4][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[4][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[3][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[2][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_reg[0][0]' is a constant and will be removed. (OPT-1206)
+  Processing 'pc'
+  Processing 'processor'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	pc/U8/B1 pc/U8/ZN pc/U7/A pc/U7/ZN muxBranch/U2/A1 muxBranch/U2/ZN muxBranch/U1/A muxBranch/U1/ZN 
+Information: Timing loop detected. (OPT-150)
+	pc/U10/B1 pc/U10/ZN pc/U9/A pc/U9/ZN muxBranch/U4/A1 muxBranch/U4/ZN muxBranch/U3/A muxBranch/U3/ZN 
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Mapping 'DW_rightsh'
+Information: Added key list 'DesignWare' to design 'ALU'. (DDB-72)
+  Mapping 'DW_leftsh'
+  Processing 'ALU_DW01_cmp6_0'
+  Processing 'ALU_DW01_sub_0'
+  Processing 'ALU_DW01_add_0'
+  Processing 'ALU_DW01_add_1'
+  Processing 'Imm_gen_DW01_add_0_DW01_add_2'
+  Processing 'Imm_gen_DW01_add_1_DW01_add_3'
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2/U1_7/A pc/add_150_S2/U1_7/S pc/U8/A1 pc/U8/ZN pc/U7/A pc/U7/ZN muxBranch/U2/A1 muxBranch/U2/ZN muxBranch/U1/A muxBranch/U1/ZN 
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2/U1_6/S pc/U10/A1 pc/U10/ZN pc/U9/A pc/U9/ZN muxBranch/U4/A1 muxBranch/U4/ZN muxBranch/U3/A muxBranch/U3/ZN pc/add_150_S2/U1_6/A 
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+  Processing 'pc_DW01_add_0_DW01_add_4'
+IIS is disabled on 'pc/add_150_S2' ('pc_DW01_add_0_DW01_add_4'). It contains loop breaker cells.
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07   11617.6      0.00       0.0      26.1                          
+    0:00:07   11617.6      0.00       0.0      26.1                          
+    0:00:07   11617.6      0.00       0.0      26.1                          
+    0:00:07   11617.6      0.00       0.0      26.1                          
+    0:00:08   11617.6      0.00       0.0      26.1                          
+    0:00:09    7448.0      0.00       0.0       2.0                          
+    0:00:09    7435.5      0.00       0.0       2.0                          
+    0:00:09    7435.5      0.00       0.0       2.0                          
+    0:00:09    7435.5      0.00       0.0       2.0                          
+    0:00:09    7435.5      0.00       0.0       2.0                          
+    0:00:09    7435.5      0.00       0.0       2.0                          
+    0:00:09    7436.6      0.00       0.0       1.8                          
+    0:00:09    7437.6      0.00       0.0       1.5                          
+    0:00:09    7438.7      0.00       0.0       1.3                          
+    0:00:09    7439.8      0.00       0.0       1.0                          
+    0:00:09    7440.8      0.00       0.0       0.8                          
+    0:00:09    7441.9      0.00       0.0       0.5                          
+    0:00:09    7442.9      0.00       0.0       0.3                          
+    0:00:09    7444.0      0.00       0.0       0.0                          
+    0:00:09    7444.0      0.00       0.0       0.0                          
+    0:00:09    7444.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:09    7444.0      0.00       0.0       0.0                          
+    0:00:09    7444.0      0.00       0.0       0.0                          
+    0:00:10    7444.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10    7444.0      0.00       0.0       0.0                          
+    0:00:10    7444.0      0.00       0.0       0.0                          
+    0:00:10    7417.1      0.00       0.0       0.0                          
+    0:00:10    7413.4      0.00       0.0       0.0                          
+    0:00:10    7412.4      0.00       0.0       0.0                          
+    0:00:10    7411.8      0.00       0.0       0.0                          
+    0:00:10    7411.3      0.00       0.0       0.0                          
+    0:00:10    7411.3      0.00       0.0       0.0                          
+    0:00:10    7411.3      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7404.1      0.00       0.0       0.0                          
+    0:00:10    7414.2      0.00       0.0       0.0                          
+Loading db file '/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+################################################################################
+# Note: compile_ultra does not work for some open source libraries, i.e. Nangate
+# since there are some cells missing for these libraries.
+# Sol: use compile instead. You can use compile_ultra for the commerial library
+# such TSMC45nm, which has a complete set of gates supported.
+#
+# compile_ultra -no_autoungroup; # keep hierarchy for the purpose of debug
+################################################################################
+# High-effort area optimization which improves the area without degrading the
+# timing or leakage of the compiled design
+optimize_netlist -area
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+Information: There are 63 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loading db file '/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.db'
+Loaded alib file './alib-52/NangateOpenCellLibrary_slow.db.alib'
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2/U1_0/S pc/U22/A1 pc/U22/ZN pc/U13/A pc/U13/ZN muxBranch/U7/A1 muxBranch/U7/ZN muxBranch/U6/A muxBranch/U6/ZN pc/add_150_S2/U1_0/A 
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2/U1_0/S pc/U22/A1 pc/U22/ZN pc/U13/A pc/U13/ZN muxBranch/U7/A1 muxBranch/U7/ZN muxBranch/U6/A muxBranch/U6/ZN pc/add_150_S2/U1_0/A 
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2/U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+
+  Updating timing information
+
+
+  Beginning Area Optimization
+  -----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:13    7414.2      0.00       0.0       0.0                           89988.5703
+Information: The register 'IFID/temp_instructionMemory_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs2_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_PCSrc_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'exmem/s_EXMEM_PCSrc_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rd_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rd_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'exmem/s_EXMEM_Rd_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'MEMWB/sMEMWB_Rd_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_imm_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct3_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs1_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs1_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs1_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs2_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_Rs2_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'exmem/s_EXMEM_Rd_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'MEMWB/sMEMWB_Rd_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_imm_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_imm_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_imm_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_imm_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[8][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[9][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[10][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[11][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[12][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[13][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[14][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'register/sregister_reg[15][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IFID/temp_instructionMemory_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IDEX/sIDEX_funct7_reg[6]' is a constant and will be removed. (OPT-1206)
+    0:00:16    6559.8      0.00       0.0       0.0                           80218.3906
+Loading db file '/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: The register 'IDEX/sIDEX_opCode_reg[0]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[1]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[2]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[3]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[4]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[5]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_opCode_reg[6]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[0]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[1]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[2]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[3]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[4]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[5]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[6]' will be removed. (OPT-1207)
+Information: The register 'IDEX/sIDEX_pc_reg[7]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[0]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[1]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[2]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[3]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[4]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[5]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[6]' will be removed. (OPT-1207)
+Information: The register 'IFID/temp_programCounter_reg[7]' will be removed. (OPT-1207)
+1
+################################################################################
+# Step 5: write out final design and reports
+# The files include:
+# - .ddc: binary format used for subsequent Design Compiler sessions
+# - .v: Verilog netlist for gate-level simulation and P&R
+# - .sdf: SDF backannotated file containing gate and net latency
+# - .sdc: SDC constraints for ASCII flow
+################################################################################
+change_names -rules verilog -hierarchy
+1
+# Write out design
+write -format verilog -hierarchy -output results/processor_new.mapped.v
+Writing verilog file '/afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/syn/results/processor_new.mapped.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write -format ddc -hierarchy -output results/processor_new.mapped.ddc
+Writing ddc file 'results/processor_new.mapped.ddc'.
+1
+write_sdf results/processor_new.mapped.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/syn/results/processor_new.mapped.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2_U1_0/S pc/U22/A1 pc/U22/ZN pc/U13/A pc/U13/ZN muxBranch/U7/A1 muxBranch/U7/ZN muxBranch/U6/A muxBranch/U6/ZN pc/add_150_S2_U1_0/A 
+Information: Timing loop detected. (OPT-150)
+	pc/add_150_S2_U1_0/S pc/U22/A1 pc/U22/ZN pc/U13/A pc/U13/ZN muxBranch/U7/A1 muxBranch/U7/ZN muxBranch/U6/A muxBranch/U6/ZN pc/add_150_S2_U1_0/A 
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U22'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U20'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U18'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U16'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U14'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U12'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'S' on cell 'pc/add_150_S2_U1_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'ZN' on cell 'pc/U10'
+         to break a timing loop. (OPT-314)
+1
+write_sdc -nosplit results/processor_new.mapped.sdc
+1
+# Generate reports
+report_qor > reports/processor_new.mapped.qor.rpt
+report_timing -transition_time -nets -attribute -nosplit   > reports/processor_new.mapped.timing.rpt
+report_area -nosplit > reports/processor_new.mapped.area.rpt
+report_power -nosplit > reports/processor_new.mapped.power.rpt
+################################################################################
+# Exit Design Compiler
+################################################################################
+exit
+
+Thank you...

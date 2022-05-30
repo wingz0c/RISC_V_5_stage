@@ -1,0 +1,106 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Layout -key child_console_size_x -value 1455
+gui_set_state_value -category Layout -key child_console_size_y -value 169
+gui_set_state_value -category Layout -key child_data_coltype -value 89
+gui_set_state_value -category Layout -key child_data_colvalue -value 149
+gui_set_state_value -category Layout -key child_data_colvariable -value 189
+gui_set_state_value -category Layout -key child_data_size_x -value 427
+gui_set_state_value -category Layout -key child_data_size_y -value 524
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colhier -value 169
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_coltype -value 107
+gui_set_state_value -category Layout -key child_hier_size_x -value 277
+gui_set_state_value -category Layout -key child_hier_size_y -value 524
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 754
+gui_set_state_value -category Layout -key child_source_size_y -value 519
+gui_set_state_value -category Layout -key child_wave_colname -value 210
+gui_set_state_value -category Layout -key child_wave_colvalue -value 210
+gui_set_state_value -category Layout -key child_wave_left -value 424
+gui_set_state_value -category Layout -key child_wave_right -value 1033
+gui_set_state_value -category Layout -key main_pos_x -value 8
+gui_set_state_value -category Layout -key main_pos_y -value 31
+gui_set_state_value -category Layout -key main_size_x -value 1463
+gui_set_state_value -category Layout -key main_size_y -value 823
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 1467
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 695
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 0
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 23
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 1462
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 822
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_state_default_create -off
+
+# Begin command logging
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
+gui_list_select -id Data.1 -selected  { {fir_tb.data_in[15:0]}   }
+gui_list_select_all -id Data.1
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { {fir_tb.i[31:0]} {fir_tb.data_out[17:0]} {fir_tb.complete[0:0]} fir_tb.clk fir_tb.rst_n {fir_tb.data_in[15:0]} fir_tb.enable {fir_tb.tap[2:0]} {fir_tb.CLK_PERIOD[31:0]} } -insertionbar
+gui_list_expand -id  Hier.1   fir_tb
+gui_list_select -id Hier.1 -current_item_name fir_tb.uut -current_item_type Scope  -selected  { fir_tb.uut   }
+gui_list_select -id Data.1 -selected  { fir_tb.uut.enable   }
+gui_list_select_all -id Data.1
+gui_list_add -id Wave.1 -from Data.1 { {fir_tb.uut.tap[2:0]} {fir_tb.uut.data_in[15:0]} {fir_tb.uut.data_out[17:0]} fir_tb.uut.clk fir_tb.uut.rst_n fir_tb.uut.enable fir_tb.uut.complete fir_tb.uut.mul_stage fir_tb.uut.add_stage1 fir_tb.uut.add_stage2 fir_tb.uut.N506 fir_tb.uut.N507 fir_tb.uut.N508 fir_tb.uut.N509 fir_tb.uut.N510 fir_tb.uut.N511 fir_tb.uut.N512 fir_tb.uut.N513 fir_tb.uut.N514 fir_tb.uut.N515 fir_tb.uut.N516 fir_tb.uut.N517 fir_tb.uut.N518 fir_tb.uut.N519 fir_tb.uut.N520 fir_tb.uut.N521 fir_tb.uut.N530 fir_tb.uut.N531 fir_tb.uut.N532 fir_tb.uut.N533 fir_tb.uut.N534 fir_tb.uut.N535 fir_tb.uut.N536 fir_tb.uut.N537 fir_tb.uut.N538 fir_tb.uut.N539 fir_tb.uut.N540 fir_tb.uut.N541 fir_tb.uut.N542 fir_tb.uut.N543 fir_tb.uut.N544 fir_tb.uut.N545 fir_tb.uut.N547 fir_tb.uut.N548 fir_tb.uut.N549 fir_tb.uut.N550 fir_tb.uut.N551 fir_tb.uut.N552 fir_tb.uut.N553 fir_tb.uut.N554 fir_tb.uut.N555 fir_tb.uut.N556 fir_tb.uut.N557 fir_tb.uut.N558 fir_tb.uut.N559 fir_tb.uut.N560 fir_tb.uut.N561 fir_tb.uut.N562 fir_tb.uut.N619 fir_tb.uut.N620 fir_tb.uut.N621 fir_tb.uut.N622 fir_tb.uut.N623 fir_tb.uut.N624 fir_tb.uut.N625 fir_tb.uut.N626 fir_tb.uut.N627 fir_tb.uut.N628 fir_tb.uut.N629 fir_tb.uut.N630 fir_tb.uut.N631 fir_tb.uut.N632 fir_tb.uut.N633 fir_tb.uut.N634 fir_tb.uut.N635 fir_tb.uut.N706 fir_tb.uut.N707 fir_tb.uut.N708 fir_tb.uut.N709 fir_tb.uut.N710 fir_tb.uut.N711 fir_tb.uut.N712 fir_tb.uut.N713 fir_tb.uut.N714 fir_tb.uut.N715 fir_tb.uut.N716 fir_tb.uut.N717 fir_tb.uut.N718 fir_tb.uut.N719 fir_tb.uut.N720 fir_tb.uut.N721 fir_tb.uut.N722 fir_tb.uut.N746 fir_tb.uut.N747 fir_tb.uut.N748 fir_tb.uut.N749 fir_tb.uut.N750 fir_tb.uut.N751 fir_tb.uut.N752 fir_tb.uut.N753 fir_tb.uut.N754 fir_tb.uut.N755 fir_tb.uut.N756 fir_tb.uut.N757 fir_tb.uut.N758 fir_tb.uut.N759 fir_tb.uut.N760 fir_tb.uut.N761 fir_tb.uut.N762 fir_tb.uut.N783 fir_tb.uut.N784 fir_tb.uut.N785 fir_tb.uut.N786 fir_tb.uut.N787 fir_tb.uut.N788 fir_tb.uut.N789 fir_tb.uut.N790 fir_tb.uut.N791 fir_tb.uut.N792 fir_tb.uut.N793 fir_tb.uut.N794 fir_tb.uut.N795 fir_tb.uut.N796 fir_tb.uut.N797 fir_tb.uut.N798 fir_tb.uut.N799 fir_tb.uut.N800 fir_tb.uut.N895 fir_tb.uut.N896 fir_tb.uut.N897 fir_tb.uut.N898 fir_tb.uut.N899 fir_tb.uut.N900 fir_tb.uut.N901 fir_tb.uut.N902 fir_tb.uut.N903 fir_tb.uut.N904 fir_tb.uut.N905 fir_tb.uut.N906 fir_tb.uut.N907 fir_tb.uut.N908 fir_tb.uut.N909 fir_tb.uut.N910 fir_tb.uut.N911 fir_tb.uut.N912 fir_tb.uut.n171 fir_tb.uut.n172 fir_tb.uut.n173 fir_tb.uut.n174 fir_tb.uut.n175 fir_tb.uut.n176 fir_tb.uut.n177 fir_tb.uut.n178 fir_tb.uut.n179 fir_tb.uut.n180 fir_tb.uut.n181 fir_tb.uut.n182 fir_tb.uut.n183 fir_tb.uut.n184 fir_tb.uut.n185 fir_tb.uut.n186 fir_tb.uut.n187 fir_tb.uut.n188 fir_tb.uut.n189 fir_tb.uut.n190 fir_tb.uut.n191 fir_tb.uut.n192 fir_tb.uut.n193 fir_tb.uut.n194 fir_tb.uut.n195 fir_tb.uut.n196 fir_tb.uut.n197 fir_tb.uut.n198 fir_tb.uut.n199 fir_tb.uut.n200 fir_tb.uut.n201 fir_tb.uut.n202 fir_tb.uut.n203 fir_tb.uut.n204 fir_tb.uut.n205 fir_tb.uut.n206 fir_tb.uut.n207 fir_tb.uut.n208 fir_tb.uut.n209 fir_tb.uut.n210 fir_tb.uut.n211 fir_tb.uut.n212 fir_tb.uut.n213 fir_tb.uut.n214 fir_tb.uut.n215 fir_tb.uut.n216 fir_tb.uut.n217 fir_tb.uut.n218 fir_tb.uut.n219 fir_tb.uut.n220 fir_tb.uut.n221 fir_tb.uut.n222 fir_tb.uut.n223 fir_tb.uut.n224 fir_tb.uut.n225 fir_tb.uut.n226 fir_tb.uut.n227 fir_tb.uut.n228 fir_tb.uut.n229 fir_tb.uut.n230 fir_tb.uut.n231 fir_tb.uut.n232 fir_tb.uut.n233 fir_tb.uut.n234 fir_tb.uut.n235 fir_tb.uut.n236 fir_tb.uut.n237 fir_tb.uut.n238 fir_tb.uut.n239 fir_tb.uut.n240 fir_tb.uut.n241 fir_tb.uut.n242 fir_tb.uut.n243 fir_tb.uut.n244 fir_tb.uut.n245 fir_tb.uut.n246 fir_tb.uut.n247 fir_tb.uut.n248 fir_tb.uut.n249 fir_tb.uut.n250 fir_tb.uut.n251 fir_tb.uut.n252 fir_tb.uut.n253 fir_tb.uut.n254 fir_tb.uut.n255 fir_tb.uut.n256 fir_tb.uut.n257 fir_tb.uut.n258 fir_tb.uut.n259 fir_tb.uut.n260 fir_tb.uut.n261 fir_tb.uut.n262 fir_tb.uut.n263 fir_tb.uut.n264 fir_tb.uut.n265 fir_tb.uut.n266 fir_tb.uut.n267 fir_tb.uut.n268 fir_tb.uut.n279 fir_tb.uut.n280 fir_tb.uut.n281 fir_tb.uut.n282 fir_tb.uut.n283 fir_tb.uut.n284 fir_tb.uut.n285 fir_tb.uut.n286 fir_tb.uut.n287 fir_tb.uut.n288 fir_tb.uut.n289 fir_tb.uut.n290 fir_tb.uut.n291 fir_tb.uut.n292 fir_tb.uut.n293 fir_tb.uut.n294 fir_tb.uut.n295 fir_tb.uut.n296 fir_tb.uut.n297 fir_tb.uut.n298 fir_tb.uut.n299 fir_tb.uut.n300 fir_tb.uut.n301 fir_tb.uut.n302 fir_tb.uut.n303 fir_tb.uut.n304 fir_tb.uut.n305 fir_tb.uut.n306 fir_tb.uut.n307 fir_tb.uut.n308 fir_tb.uut.n309 fir_tb.uut.n310 fir_tb.uut.n311 fir_tb.uut.n312 fir_tb.uut.n313 fir_tb.uut.n314 fir_tb.uut.n315 fir_tb.uut.n316 fir_tb.uut.n317 fir_tb.uut.n318 fir_tb.uut.n319 fir_tb.uut.n320 fir_tb.uut.n323 fir_tb.uut.n324 fir_tb.uut.n325 fir_tb.uut.n326 fir_tb.uut.n327 fir_tb.uut.n328 fir_tb.uut.n329 fir_tb.uut.n330 fir_tb.uut.n331 fir_tb.uut.n332 fir_tb.uut.n333 fir_tb.uut.n334 fir_tb.uut.n335 fir_tb.uut.n336 fir_tb.uut.n337 fir_tb.uut.n338 fir_tb.uut.n339 fir_tb.uut.n340 fir_tb.uut.n341 fir_tb.uut.n342 fir_tb.uut.n343 fir_tb.uut.n344 fir_tb.uut.n345 fir_tb.uut.n346 fir_tb.uut.n347 fir_tb.uut.n348 fir_tb.uut.n349 fir_tb.uut.n350 fir_tb.uut.n351 fir_tb.uut.n352 fir_tb.uut.n353 fir_tb.uut.n354 fir_tb.uut.n355 fir_tb.uut.n356 fir_tb.uut.n357 fir_tb.uut.n358 fir_tb.uut.n359 fir_tb.uut.n360 fir_tb.uut.n361 fir_tb.uut.n362 fir_tb.uut.n363 fir_tb.uut.n364 fir_tb.uut.n365 fir_tb.uut.n366 fir_tb.uut.n367 fir_tb.uut.n368 fir_tb.uut.n369 fir_tb.uut.n370 fir_tb.uut.n371 fir_tb.uut.n372 fir_tb.uut.n373 fir_tb.uut.n374 fir_tb.uut.n375 fir_tb.uut.n376 fir_tb.uut.n377 fir_tb.uut.n378 fir_tb.uut.n379 fir_tb.uut.n380 fir_tb.uut.n381 fir_tb.uut.n382 fir_tb.uut.n384 fir_tb.uut.n385 fir_tb.uut.n386 fir_tb.uut.n387 fir_tb.uut.n388 fir_tb.uut.n389 fir_tb.uut.n390 fir_tb.uut.n391 fir_tb.uut.n392 fir_tb.uut.n393 fir_tb.uut.n394 fir_tb.uut.n395 fir_tb.uut.n396 fir_tb.uut.n397 fir_tb.uut.n398 fir_tb.uut.n399 fir_tb.uut.n400 fir_tb.uut.n401 fir_tb.uut.n402 fir_tb.uut.n403 fir_tb.uut.n404 fir_tb.uut.n405 fir_tb.uut.n406 fir_tb.uut.n407 fir_tb.uut.n408 fir_tb.uut.n409 fir_tb.uut.n410 fir_tb.uut.n411 fir_tb.uut.n412 fir_tb.uut.n413 fir_tb.uut.n414 fir_tb.uut.n415 fir_tb.uut.n416 fir_tb.uut.n417 fir_tb.uut.n418 fir_tb.uut.n419 fir_tb.uut.n420 fir_tb.uut.n421 fir_tb.uut.n422 fir_tb.uut.n423 fir_tb.uut.n424 fir_tb.uut.n425 fir_tb.uut.n426 fir_tb.uut.n427 fir_tb.uut.n428 fir_tb.uut.n429 fir_tb.uut.n430 fir_tb.uut.n431 fir_tb.uut.n432 fir_tb.uut.n433 fir_tb.uut.n434 fir_tb.uut.n435 fir_tb.uut.n436 fir_tb.uut.n437 fir_tb.uut.n438 fir_tb.uut.n439 fir_tb.uut.n440 fir_tb.uut.n441 fir_tb.uut.n442 fir_tb.uut.n443 fir_tb.uut.n444 fir_tb.uut.n445 fir_tb.uut.n446 fir_tb.uut.n447 fir_tb.uut.n448 fir_tb.uut.n449 fir_tb.uut.n450 fir_tb.uut.n451 fir_tb.uut.n452 fir_tb.uut.n453 fir_tb.uut.n454 fir_tb.uut.n455 fir_tb.uut.n456 fir_tb.uut.n457 fir_tb.uut.n458 fir_tb.uut.n459 fir_tb.uut.n460 fir_tb.uut.n461 fir_tb.uut.n462 fir_tb.uut.n463 fir_tb.uut.n464 fir_tb.uut.n465 fir_tb.uut.n466 fir_tb.uut.n467 fir_tb.uut.n468 fir_tb.uut.n469 fir_tb.uut.n470 fir_tb.uut.n471 fir_tb.uut.n472 fir_tb.uut.n473 fir_tb.uut.n474 fir_tb.uut.n475 fir_tb.uut.n476 fir_tb.uut.n477 fir_tb.uut.n478 fir_tb.uut.n479 fir_tb.uut.n480 fir_tb.uut.n482 fir_tb.uut.n483 fir_tb.uut.n484 fir_tb.uut.n485 fir_tb.uut.n486 fir_tb.uut.n487 fir_tb.uut.n488 fir_tb.uut.n489 fir_tb.uut.n490 fir_tb.uut.n491 fir_tb.uut.n492 fir_tb.uut.n493 fir_tb.uut.n494 fir_tb.uut.n495 fir_tb.uut.n496 fir_tb.uut.n497 fir_tb.uut.n498 fir_tb.uut.n499 fir_tb.uut.n500 fir_tb.uut.n501 fir_tb.uut.n502 fir_tb.uut.n503 fir_tb.uut.n504 fir_tb.uut.n505 fir_tb.uut.n506 fir_tb.uut.n507 fir_tb.uut.n508 fir_tb.uut.n509 fir_tb.uut.n510 fir_tb.uut.n511 fir_tb.uut.n512 fir_tb.uut.n513 fir_tb.uut.n514 fir_tb.uut.n515 fir_tb.uut.n516 fir_tb.uut.n517 fir_tb.uut.n518 fir_tb.uut.n519 fir_tb.uut.n520 fir_tb.uut.n521 fir_tb.uut.n522 fir_tb.uut.n523 fir_tb.uut.n524 fir_tb.uut.n525 fir_tb.uut.n526 fir_tb.uut.n527 fir_tb.uut.n528 fir_tb.uut.n529 fir_tb.uut.n530 fir_tb.uut.n531 fir_tb.uut.n532 fir_tb.uut.n533 fir_tb.uut.n534 fir_tb.uut.n535 fir_tb.uut.n536 fir_tb.uut.n537 fir_tb.uut.n538 fir_tb.uut.n539 fir_tb.uut.n540 fir_tb.uut.n541 fir_tb.uut.n542 fir_tb.uut.n543 fir_tb.uut.n544 fir_tb.uut.n545 fir_tb.uut.n546 fir_tb.uut.n547 fir_tb.uut.n548 fir_tb.uut.n549 fir_tb.uut.n550 fir_tb.uut.n551 fir_tb.uut.n552 fir_tb.uut.n553 fir_tb.uut.n554 fir_tb.uut.n555 fir_tb.uut.n556 fir_tb.uut.n557 fir_tb.uut.n558 fir_tb.uut.n559 fir_tb.uut.n560 fir_tb.uut.n561 fir_tb.uut.n562 fir_tb.uut.n563 fir_tb.uut.n564 fir_tb.uut.n565 fir_tb.uut.n566 fir_tb.uut.n567 fir_tb.uut.n568 fir_tb.uut.n569 fir_tb.uut.n570 fir_tb.uut.n571 fir_tb.uut.n572 fir_tb.uut.n573 fir_tb.uut.n574 fir_tb.uut.n575 fir_tb.uut.n576 fir_tb.uut.n577 fir_tb.uut.n578 fir_tb.uut.n579 fir_tb.uut.n580 fir_tb.uut.n581 fir_tb.uut.n582 fir_tb.uut.n583 fir_tb.uut.n584 fir_tb.uut.n585 fir_tb.uut.n586 fir_tb.uut.n587 fir_tb.uut.n588 fir_tb.uut.n589 fir_tb.uut.n590 fir_tb.uut.n591 fir_tb.uut.n592 fir_tb.uut.n593 fir_tb.uut.n594 fir_tb.uut.n595 fir_tb.uut.n596 fir_tb.uut.n597 fir_tb.uut.n598 fir_tb.uut.n599 fir_tb.uut.n600 fir_tb.uut.n601 fir_tb.uut.n602 fir_tb.uut.n603 fir_tb.uut.n604 fir_tb.uut.n605 fir_tb.uut.n606 fir_tb.uut.n607 fir_tb.uut.n608 fir_tb.uut.n609 fir_tb.uut.n610 fir_tb.uut.n611 fir_tb.uut.n612 fir_tb.uut.n613 fir_tb.uut.n614 fir_tb.uut.n615 fir_tb.uut.n616 fir_tb.uut.n617 fir_tb.uut.n618 fir_tb.uut.n619 fir_tb.uut.n620 fir_tb.uut.n621 fir_tb.uut.n622 fir_tb.uut.n623 fir_tb.uut.n624 fir_tb.uut.n625 fir_tb.uut.n626 fir_tb.uut.n627 fir_tb.uut.n628 fir_tb.uut.n629 fir_tb.uut.n630 fir_tb.uut.n631 fir_tb.uut.n632 fir_tb.uut.n633 fir_tb.uut.n634 fir_tb.uut.N999 fir_tb.uut.N998 fir_tb.uut.N1014 fir_tb.uut.N1013 fir_tb.uut.N1012 fir_tb.uut.N1011 fir_tb.uut.N1010 fir_tb.uut.N1009 fir_tb.uut.N1008 fir_tb.uut.N1007 fir_tb.uut.N1006 fir_tb.uut.N1005 fir_tb.uut.N1004 fir_tb.uut.N1003 fir_tb.uut.N1002 fir_tb.uut.N1001 fir_tb.uut.N1000 fir_tb.uut.n635 fir_tb.uut.n636 fir_tb.uut.n639 fir_tb.uut.n644 fir_tb.uut.n645 fir_tb.uut.n647 fir_tb.uut.n649 fir_tb.uut.n651 fir_tb.uut.n652 fir_tb.uut.n653 fir_tb.uut.n656 fir_tb.uut.n657 fir_tb.uut.n728 fir_tb.uut.n729 fir_tb.uut.n730 fir_tb.uut.n731 fir_tb.uut.n732 fir_tb.uut.n733 fir_tb.uut.n734 fir_tb.uut.n735 fir_tb.uut.n736 fir_tb.uut.n737 fir_tb.uut.n738 fir_tb.uut.n739 fir_tb.uut.n740 fir_tb.uut.n741 fir_tb.uut.n742 fir_tb.uut.n743 fir_tb.uut.n744 fir_tb.uut.n745 fir_tb.uut.n746 fir_tb.uut.n747 fir_tb.uut.n748 fir_tb.uut.n749 fir_tb.uut.n750 fir_tb.uut.n751 fir_tb.uut.n752 fir_tb.uut.n753 fir_tb.uut.n754 fir_tb.uut.n755 fir_tb.uut.n756 fir_tb.uut.n757 fir_tb.uut.n758 fir_tb.uut.n759 fir_tb.uut.n760 fir_tb.uut.n761 fir_tb.uut.n762 fir_tb.uut.n763 fir_tb.uut.n764 fir_tb.uut.n765 fir_tb.uut.n766 fir_tb.uut.n767 fir_tb.uut.n768 fir_tb.uut.n769 fir_tb.uut.n770 fir_tb.uut.n771 fir_tb.uut.n772 fir_tb.uut.n773 fir_tb.uut.n774 fir_tb.uut.n775 fir_tb.uut.n776 fir_tb.uut.n777 fir_tb.uut.n778 fir_tb.uut.n779 fir_tb.uut.n780 fir_tb.uut.n781 fir_tb.uut.n782 fir_tb.uut.n783 fir_tb.uut.n784 fir_tb.uut.n785 fir_tb.uut.n786 fir_tb.uut.n787 fir_tb.uut.n788 fir_tb.uut.n789 fir_tb.uut.n790 fir_tb.uut.n791 fir_tb.uut.n792 fir_tb.uut.n793 fir_tb.uut.n794 fir_tb.uut.n795 fir_tb.uut.n796 fir_tb.uut.n797 fir_tb.uut.n798 fir_tb.uut.n799 fir_tb.uut.n800 fir_tb.uut.n801 fir_tb.uut.n802 fir_tb.uut.n803 fir_tb.uut.n804 fir_tb.uut.n805 fir_tb.uut.n806 fir_tb.uut.n807 fir_tb.uut.n808 fir_tb.uut.n809 fir_tb.uut.n810 fir_tb.uut.n811 fir_tb.uut.n813 fir_tb.uut.n814 fir_tb.uut.n815 fir_tb.uut.n816 fir_tb.uut.n817 fir_tb.uut.n818 fir_tb.uut.n819 fir_tb.uut.n820 fir_tb.uut.n821 fir_tb.uut.n822 fir_tb.uut.n823 fir_tb.uut.n824 fir_tb.uut.n825 fir_tb.uut.n826 fir_tb.uut.n827 fir_tb.uut.n828 fir_tb.uut.n829 fir_tb.uut.n830 fir_tb.uut.n831 fir_tb.uut.n832 fir_tb.uut.n833 fir_tb.uut.n834 fir_tb.uut.n835 fir_tb.uut.n836 fir_tb.uut.n837 fir_tb.uut.n838 fir_tb.uut.n839 fir_tb.uut.n840 fir_tb.uut.n841 fir_tb.uut.n842 fir_tb.uut.n843 fir_tb.uut.n844 fir_tb.uut.n845 fir_tb.uut.n846 fir_tb.uut.n847 fir_tb.uut.n848 fir_tb.uut.n849 fir_tb.uut.n850 fir_tb.uut.n851 fir_tb.uut.n852 fir_tb.uut.n853 fir_tb.uut.n854 fir_tb.uut.n855 fir_tb.uut.n856 fir_tb.uut.n857 fir_tb.uut.n858 fir_tb.uut.n859 fir_tb.uut.n860 fir_tb.uut.n861 fir_tb.uut.n862 fir_tb.uut.n863 fir_tb.uut.n864 fir_tb.uut.n865 fir_tb.uut.n866 fir_tb.uut.n867 fir_tb.uut.n868 fir_tb.uut.n869 fir_tb.uut.n870 fir_tb.uut.n871 fir_tb.uut.n872 fir_tb.uut.n873 fir_tb.uut.n874 fir_tb.uut.n875 fir_tb.uut.n876 fir_tb.uut.n877 fir_tb.uut.n878 fir_tb.uut.n879 fir_tb.uut.n880 fir_tb.uut.n881 fir_tb.uut.n882 fir_tb.uut.n883 fir_tb.uut.n884 fir_tb.uut.n885 fir_tb.uut.n891 fir_tb.uut.n894 fir_tb.uut.n895 fir_tb.uut.SYNOPSYS_UNCONNECTED_1 fir_tb.uut.SYNOPSYS_UNCONNECTED_2 fir_tb.uut.SYNOPSYS_UNCONNECTED_3 fir_tb.uut.SYNOPSYS_UNCONNECTED_4 fir_tb.uut.SYNOPSYS_UNCONNECTED_5 fir_tb.uut.SYNOPSYS_UNCONNECTED_6 {fir_tb.uut.data_reg_0[15:0]} {fir_tb.uut.data_reg_1[14:0]} {fir_tb.uut.data_reg_2[14:0]} {fir_tb.uut.data_reg_3[15:0]} {fir_tb.uut.data_reg_4[15:0]} {fir_tb.uut.data_reg_5[15:0]} {fir_tb.uut.multiplication_0[15:0]} {fir_tb.uut.multiplication_1[15:0]} {fir_tb.uut.multiplication_2[15:0]} {fir_tb.uut.multiplication_3[15:0]} {fir_tb.uut.multiplication_4[15:0]} {fir_tb.uut.multiplication_5[15:0]} {fir_tb.uut.sum_1[16:0]} {fir_tb.uut.sum_2[16:0]} {fir_tb.uut.sum_3[16:0]} } -insertionbar
+gui_list_select -id Wave.1 -selected  { {fir_tb.data_out[17:0]}   }
+gui_list_select -id Wave.1 -selected  { {fir_tb.i[31:0]}   }
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select_all -id Data.1
+gui_open_window Watch TopLevel.1
+gui_list_add -id Watch.1 { {fir_tb.i[31:0]} {fir_tb.data_out[17:0]} {fir_tb.complete[0:0]} fir_tb.clk fir_tb.rst_n {fir_tb.data_in[15:0]} fir_tb.enable {fir_tb.tap[2:0]} {fir_tb.CLK_PERIOD[31:0]} }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { {fir_tb.i[31:0]} {fir_tb.data_out[17:0]} {fir_tb.complete[0:0]} fir_tb.clk fir_tb.rst_n {fir_tb.data_in[15:0]} fir_tb.enable {fir_tb.tap[2:0]} {fir_tb.CLK_PERIOD[31:0]} } -insertionbar
+gui_list_select_all -id Wave.1
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { {fir_tb.i[31:0]} {fir_tb.data_out[17:0]} {fir_tb.complete[0:0]} fir_tb.clk fir_tb.rst_n {fir_tb.data_in[15:0]} fir_tb.enable {fir_tb.tap[2:0]} {fir_tb.CLK_PERIOD[31:0]} } -insertionbar
+gui_list_add -id Wave.1 -from Data.1 { {fir_tb.uut.tap[2:0]} {fir_tb.uut.data_in[15:0]} {fir_tb.uut.data_out[17:0]} fir_tb.uut.clk fir_tb.uut.rst_n fir_tb.uut.enable fir_tb.uut.complete fir_tb.uut.mul_stage fir_tb.uut.add_stage1 fir_tb.uut.add_stage2 {fir_tb.uut.data_reg_0[15:0]} {fir_tb.uut.data_reg_1[14:0]} {fir_tb.uut.data_reg_2[14:0]} {fir_tb.uut.data_reg_3[15:0]} {fir_tb.uut.data_reg_4[15:0]} {fir_tb.uut.data_reg_5[15:0]} {fir_tb.uut.multiplication_0[15:0]} {fir_tb.uut.multiplication_1[15:0]} {fir_tb.uut.multiplication_2[15:0]} {fir_tb.uut.multiplication_3[15:0]} {fir_tb.uut.multiplication_4[15:0]} {fir_tb.uut.multiplication_5[15:0]} {fir_tb.uut.sum_1[16:0]} {fir_tb.uut.sum_2[16:0]} {fir_tb.uut.sum_3[16:0]} } -insertionbar
+gui_sim_stop 
+gui_zoom -window Wave.1 -full
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_wv_zoom_timerange -id  Wave.1 105883535444 105885224488
+gui_close_window -window TopLevel.2

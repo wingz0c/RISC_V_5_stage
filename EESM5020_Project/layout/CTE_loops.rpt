@@ -1,0 +1,104 @@
+     +----------------------------+ 
+     |       Pin       |   Cell   | 
+     |-----------------+----------| 
+     | muxBranch/U4/ZN |   INV_X1 | 
+     |       pc/U18/B1 | AOI22_X1 | 
+     |       pc/U18/ZN | AOI22_X1 | 
+     |         pc/U6/A |   INV_X1 | 
+     |        pc/U6/ZN |   INV_X1 | 
+     | muxBranch/U5/A1 | AOI22_X1 | 
+     | muxBranch/U5/ZN | AOI22_X1 | 
+     |  muxBranch/U4/A |   INV_X1 | 
+     | muxBranch/U4/ZN |   INV_X1 | 
+     +----------------------------+ 
+     +----------------------------+ 
+     |       Pin       |   Cell   | 
+     |-----------------+----------| 
+     | muxBranch/U2/ZN |   INV_X1 | 
+     |       pc/U16/B1 | AOI22_X1 | 
+     |       pc/U16/ZN | AOI22_X1 | 
+     |         pc/U5/A |   INV_X1 | 
+     |        pc/U5/ZN |   INV_X1 | 
+     | muxBranch/U3/A1 | AOI22_X1 | 
+     | muxBranch/U3/ZN | AOI22_X1 | 
+     |  muxBranch/U2/A |   INV_X1 | 
+     | muxBranch/U2/ZN |   INV_X1 | 
+     +----------------------------+ 
+     +-----------------------------+ 
+     |       Pin        |   Cell   | 
+     |------------------+----------| 
+     | muxBranch/U10/ZN |   INV_X1 | 
+     |        pc/U14/B1 | AOI22_X1 | 
+     |        pc/U14/ZN | AOI22_X1 | 
+     |          pc/U9/A |   INV_X1 | 
+     |         pc/U9/ZN |   INV_X1 | 
+     | muxBranch/U11/A1 | AOI22_X1 | 
+     | muxBranch/U11/ZN | AOI22_X1 | 
+     |  muxBranch/U10/A |   INV_X1 | 
+     | muxBranch/U10/ZN |   INV_X1 | 
+     +-----------------------------+ 
+     +-----------------------------+ 
+     |       Pin        |   Cell   | 
+     |------------------+----------| 
+     | muxBranch/U12/ZN |   INV_X1 | 
+     |        pc/U12/B1 | AOI22_X1 | 
+     |        pc/U12/ZN | AOI22_X1 | 
+     |          pc/U7/A |   INV_X1 | 
+     |         pc/U7/ZN |   INV_X1 | 
+     | muxBranch/U13/A1 | AOI22_X1 | 
+     | muxBranch/U13/ZN | AOI22_X1 | 
+     |  muxBranch/U12/A |   INV_X1 | 
+     | muxBranch/U12/ZN |   INV_X1 | 
+     +-----------------------------+ 
+     +-----------------------------+ 
+     |       Pin        |   Cell   | 
+     |------------------+----------| 
+     | muxBranch/U14/ZN |   INV_X1 | 
+     |        pc/U10/B1 | AOI22_X1 | 
+     |        pc/U10/ZN | AOI22_X1 | 
+     |         pc/U17/A |   INV_X1 | 
+     |        pc/U17/ZN |   INV_X1 | 
+     | muxBranch/U15/A1 | AOI22_X1 | 
+     | muxBranch/U15/ZN | AOI22_X1 | 
+     |  muxBranch/U14/A |   INV_X1 | 
+     | muxBranch/U14/ZN |   INV_X1 | 
+     +-----------------------------+ 
+     +-----------------------------+ 
+     |       Pin        |   Cell   | 
+     |------------------+----------| 
+     | muxBranch/U16/ZN |   INV_X1 | 
+     |         pc/U8/B1 | AOI22_X1 | 
+     |         pc/U8/ZN | AOI22_X1 | 
+     |         pc/U19/A |   INV_X1 | 
+     |        pc/U19/ZN |   INV_X1 | 
+     | muxBranch/U17/A1 | AOI22_X1 | 
+     | muxBranch/U17/ZN | AOI22_X1 | 
+     |  muxBranch/U16/A |   INV_X1 | 
+     | muxBranch/U16/ZN |   INV_X1 | 
+     +-----------------------------+ 
+     +----------------------------+ 
+     |       Pin       |   Cell   | 
+     |-----------------+----------| 
+     | muxBranch/U8/ZN |   INV_X1 | 
+     |       pc/U20/B1 | AOI22_X1 | 
+     |       pc/U20/ZN | AOI22_X1 | 
+     |        pc/U15/A |   INV_X1 | 
+     |       pc/U15/ZN |   INV_X1 | 
+     | muxBranch/U9/A1 | AOI22_X1 | 
+     | muxBranch/U9/ZN | AOI22_X1 | 
+     |  muxBranch/U8/A |   INV_X1 | 
+     | muxBranch/U8/ZN |   INV_X1 | 
+     +----------------------------+ 
+     +----------------------------+ 
+     |       Pin       |   Cell   | 
+     |-----------------+----------| 
+     | muxBranch/U6/ZN |   INV_X1 | 
+     |       pc/U22/B1 | AOI22_X1 | 
+     |       pc/U22/ZN | AOI22_X1 | 
+     |        pc/U13/A |   INV_X1 | 
+     |       pc/U13/ZN |   INV_X1 | 
+     | muxBranch/U7/A1 | AOI22_X1 | 
+     | muxBranch/U7/ZN | AOI22_X1 | 
+     |  muxBranch/U6/A |   INV_X1 | 
+     | muxBranch/U6/ZN |   INV_X1 | 
+     +----------------------------+ 

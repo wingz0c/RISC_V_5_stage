@@ -1,0 +1,13 @@
+Warning : License for product VCSRuntime_Net(725) will expire within 14 days, on: 15-may-2022.
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP1-1_Full64; Runtime version Q-2020.03-SP1-1_Full64;  May  2 23:51 2022
+VCD+ Writer Q-2020.03-SP1-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
+The file '/afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/syn_sim/inter.vpd' was opened successfully.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 105885150000 ps
+CPU Time:    118.730 seconds;       Data structure size:   0.8Mb
+Mon May  2 23:56:06 2022

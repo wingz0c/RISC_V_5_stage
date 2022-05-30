@@ -1,0 +1,83 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 20.10-p004_1 (64bit) 05/07/2020 20:02 (Linux 2.6.32-431.11.2.el6.x86_64)
+*	
+*
+* 	Date & Time:	2022-May-30 20:15:02 (2022-May-30 12:15:02 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: processor
+*
+*	Liberty Libraries used: 
+*	        analysis_slow: /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_slow.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:       0.95 
+*
+*       Power View : analysis_slow
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       report_power -outfile reports/processor_new.routed.power.rpt
+*
+-----------------------------------------------------------------------------------------
+
+
+Total Power 
+-----------------------------------------------------------------------------------------
+Total Internal Power:        0.17774694 	   48.6231%
+Total Switching Power:       0.11438906 	   31.2914%
+Total Leakage Power:         0.07342470 	   20.0855%
+Total Power:                 0.36556070 
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                        0.1067     0.02772     0.04108      0.1755          48 
+Macro                                  0           0           0           0           0 
+IO                                     0           0           0           0           0 
+Combinational                    0.07107     0.08667     0.03235      0.1901          52 
+Clock (Combinational)                  0           0           0           0           0 
+Clock (Sequential)                     0           0           0           0           0 
+-----------------------------------------------------------------------------------------
+Total                             0.1777      0.1144     0.07342      0.3656         100 
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      0.95     0.1777      0.1144     0.07342      0.3656         100 
+
+
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*                Highest Average Power:   data_mem/FE_OFC29_n1274 (CLKBUF_X2):         0.001343 
+*                Highest Leakage Power:   IDEX/sIDEX_ALUOp_reg_1_ (DFFR_X1):        5.674e-05 
+*          Total Cap:      1.38098e-11 F
+*          Total instances in design:  2769
+*          Total instances in design with no power:     0
+*          Total instances in design with no activity:     0
+*          Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+

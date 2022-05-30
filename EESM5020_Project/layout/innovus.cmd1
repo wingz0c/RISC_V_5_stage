@@ -1,0 +1,495 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Apr 10 21:34:33 2022                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v20.10-p004_1 (64bit) 05/07/2020 20:02 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 20.10-p004_1 NR200413-0234/20_10-UB (database version 18.20.505) {superthreading v1.69}
+#@(#)CDS: AAE 20.10-p005 (64bit) 05/07/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 20.10-p005_1 () Apr 14 2020 09:14:28 ( )
+#@(#)CDS: SYNTECH 20.10-b004_1 () Mar 12 2020 22:18:21 ( )
+#@(#)CDS: CPE v20.10-p006
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s155 (64bit) Sun Nov 3 18:26:52 PST 2019 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+set init_verilog ../syn/results/bkadder.mapped.v
+set init_mmmc_file scripts/mmc2.view
+set init_lef_file {/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.tech.lef /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.macro.lef}
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+setDesignMode -process 45
+floorPlan -r 1 0.6 6 6 6 6
+loadIoFile scripts/divider.ioc -noAdjustDieSize
+saveDesign db/bkadder_floorplan.enc
+globalNetConnect VDD -type pgpin -pin VDD -all
+globalNetConnect VSS -type pgpin -pin VSS -all
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+addRing -center 1 -type core_rings -width 1.5 -spacing 0.9 -nets {VDD VSS} -layer {bottom metal9 top metal9 right metal10 left metal10}
+addStripe -number_of_sets 1 -width 1.25 -spacing 0.9 -xleft_offset 20 -nets {VDD VSS} -layer metal10
+sroute -connect corePin -nets {VDD VSS} -layerChangeRange {metal1 metal10} -blockPinTarget nearestTarget -allowJogging 1 -crossoverViaLayerRange {metal1 metal10} -allowLayerChange 1 -targetViaLayerRange {metal1 metal10}
+saveDesign db/bkadder_powerplan.enc
+setPlaceMode -reset
+setPlaceMode -reorderScan 0
+getPlaceMode -place_hierarchical_flow -quiet
+report_message -start_cmd
+getRouteMode -maxRouteLayer -quiet
+getRouteMode -user -maxRouteLayer
+getPlaceMode -user -maxRouteLayer
+getPlaceMode -quiet -adaptiveFlowMode
+getPlaceMode -timingDriven -quiet
+getPlaceMode -adaptive -quiet
+getPlaceMode -relaxSoftBlockageMode -quiet
+getPlaceMode -user -relaxSoftBlockageMode
+getPlaceMode -ignoreScan -quiet
+getPlaceMode -user -ignoreScan
+getPlaceMode -repairPlace -quiet
+getPlaceMode -user -repairPlace
+getPlaceMode -inPlaceOptMode -quiet
+getPlaceMode -quiet -bypassFlowEffortHighChecking
+getDesignMode -quiet -siPrevention
+getPlaceMode -exp_slack_driven -quiet
+um::push_snapshot_stack
+getDesignMode -quiet -flowEffort
+getDesignMode -highSpeedCore -quiet
+getPlaceMode -quiet -adaptive
+set spgFlowInInitialPlace 1
+getPlaceMode -sdpAlignment -quiet
+getPlaceMode -softGuide -quiet
+getPlaceMode -useSdpGroup -quiet
+getPlaceMode -sdpAlignment -quiet
+getPlaceMode -enableDbSaveAreaPadding -quiet
+getPlaceMode -quiet -wireLenOptEffort
+getPlaceMode -sdpPlace -quiet
+getPlaceMode -exp_slack_driven -quiet
+getPlaceMode -sdpPlace -quiet
+getPlaceMode -groupHighLevelClkGate -quiet
+setvar spgRptErrorForScanConnection 0
+getPlaceMode -place_global_exp_allow_missing_scan_chain -quiet
+getPlaceMode -place_check_library -quiet
+getPlaceMode -trimView -quiet
+getPlaceMode -expTrimOptBeforeTDGP -quiet
+getPlaceMode -quiet -useNonTimingDeleteBufferTree
+getPlaceMode -congEffort -quiet
+getPlaceMode -relaxSoftBlockageMode -quiet
+getPlaceMode -user -relaxSoftBlockageMode
+getPlaceMode -ignoreScan -quiet
+getPlaceMode -user -ignoreScan
+getPlaceMode -repairPlace -quiet
+getPlaceMode -user -repairPlace
+getPlaceMode -congEffort -quiet
+getPlaceMode -fp -quiet
+getPlaceMode -timingDriven -quiet
+getPlaceMode -user -timingDriven
+getPlaceMode -fastFp -quiet
+getPlaceMode -clusterMode -quiet
+get_proto_model -type_match {flex_module flex_instgroup} -committed -name -tcl
+getPlaceMode -inPlaceOptMode -quiet
+getPlaceMode -quiet -bypassFlowEffortHighChecking
+getPlaceMode -ultraCongEffortFlow -quiet
+getPlaceMode -forceTiming -quiet
+getPlaceMode -fp -quiet
+getPlaceMode -fastfp -quiet
+getPlaceMode -timingDriven -quiet
+getPlaceMode -fp -quiet
+getPlaceMode -fastfp -quiet
+getPlaceMode -powerDriven -quiet
+getExtractRCMode -quiet -engine
+getAnalysisMode -quiet -clkSrcPath
+getAnalysisMode -quiet -clockPropagation
+getAnalysisMode -quiet -cppr
+setExtractRCMode -engine preRoute
+setAnalysisMode -clkSrcPath false -clockPropagation forcedIdeal
+getPlaceMode -exp_slack_driven -quiet
+isAnalysisModeSetup
+getPlaceMode -quiet -place_global_exp_solve_unbalance_path
+getPlaceMode -quiet -NMPsuppressInfo
+getPlaceMode -quiet -place_global_exp_wns_focus_v2
+getPlaceMode -enableDistPlace -quiet
+getPlaceMode -quiet -clusterMode
+getPlaceMode -wl_budget_mode -quiet
+setPlaceMode -reset -place_global_exp_balance_buffer_chain
+getPlaceMode -wl_budget_mode -quiet
+setPlaceMode -reset -place_global_exp_balance_pipeline
+getPlaceMode -place_global_exp_balance_buffer_chain -quiet
+getPlaceMode -place_global_exp_balance_pipeline -quiet
+getPlaceMode -tdgpMemFlow -quiet
+getPlaceMode -user -resetCombineRFLevel
+getPlaceMode -quiet -resetCombineRFLevel
+setPlaceMode -resetCombineRFLevel 1000
+setvar spgSpeedupBuildVSM 1
+getPlaceMode -tdgpResetCteTG -quiet
+getPlaceMode -macroPlaceMode -quiet
+getPlaceMode -enableDistPlace -quiet
+getPlaceMode -exp_slack_driven -quiet
+getPlaceMode -place_global_ignore_spare -quiet
+getPlaceMode -enableDistPlace -quiet
+getPlaceMode -quiet -expNewFastMode
+setPlaceMode -expHiddenFastMode 1
+setPlaceMode -reset -ignoreScan
+getPlaceMode -quiet -place_global_exp_auto_finish_floorplan
+colorizeGeometry
+getPlaceMode -quiet -IOSlackAdjust
+getPlaceMode -tdgpCteZeroDelayModeDelBuf -quiet
+set_global timing_enable_zero_delay_analysis_mode true
+getPlaceMode -quiet -useNonTimingDeleteBufferTree
+getPlaceMode -quiet -prePlaceOptSimplifyNetlist
+getPlaceMode -quiet -enablePrePlaceOptimizations
+getPlaceMode -quiet -prePlaceOptDecloneInv
+deleteBufferTree -decloneInv
+getPlaceMode -tdgpCteZeroDelayModeDelBuf -quiet
+set_global timing_enable_zero_delay_analysis_mode false
+getAnalysisMode -quiet -honorClockDomains
+getPlaceMode -honorUserPathGroup -quiet
+getAnalysisMode -quiet -honorClockDomains
+set delaycal_use_default_delay_limit 101
+set delaycal_default_net_delay 0
+set delaycal_default_net_load 0
+set delaycal_default_net_load_ignore_for_ilm 0
+getAnalysisMode -clkSrcPath -quiet
+getAnalysisMode -clockPropagation -quiet
+getAnalysisMode -checkType -quiet
+buildTimingGraph
+getDelayCalMode -ignoreNetLoad -quiet
+getDelayCalMode -ignoreNetLoad -quiet
+setDelayCalMode -ignoreNetLoad true -quiet
+get_global timing_enable_path_group_priority
+get_global timing_constraint_enable_group_path_resetting
+set_global timing_enable_path_group_priority false
+set_global timing_constraint_enable_group_path_resetting false
+getOptMode -allowPreCTSClkSrcPaths -quiet
+set_global _is_ipo_interactive_path_groups 1
+group_path -name in2out_tmp.3696 -from {0x10a } -to 0x10d -ignore_source_of_trigger_arc
+isAnalysisModeSetup
+getAnalysisMode -analysisType -quiet
+isAnalysisModeSetup
+all_setup_analysis_views
+all_hold_analysis_views
+get_analysis_view $view -delay_corner
+get_delay_corner $dcCorner -power_domain_list
+get_delay_corner $dcCorner -library_set
+get_library_set $libSetName -si
+get_delay_corner $dcCorner -late_library_set
+get_delay_corner $dcCorner -early_library_set
+get_analysis_view $view -delay_corner
+get_delay_corner $dcCorner -power_domain_list
+get_delay_corner $dcCorner -library_set
+get_library_set $libSetName -si
+get_delay_corner $dcCorner -late_library_set
+get_delay_corner $dcCorner -early_library_set
+get_library_set lib_slow -si
+get_library_set lib_slow -si
+get_library_set lib_fast -si
+reset_path_group -name in2out_tmp.3696
+set_global _is_ipo_interactive_path_groups 0
+setDelayCalMode -ignoreNetLoad false
+set delaycal_use_default_delay_limit 1000
+set delaycal_default_net_delay 1000ps
+set delaycal_default_net_load 0.5pf
+set delaycal_default_net_load_ignore_for_ilm 0
+all_setup_analysis_views
+getPlaceMode -place_global_exp_ignore_low_effort_path_groups -quiet
+getPlaceMode -exp_slack_driven -quiet
+getAnalysisMode -quiet -honorClockDomains
+getPlaceMode -ignoreUnproperPowerInit -quiet
+getPlaceMode -quiet -expSkipGP
+setDelayCalMode -engine feDc
+createBasicPathGroups -quiet
+setDelayCalMode -engine aae
+all_setup_analysis_views
+getPlaceMode -exp_slack_driven -quiet
+set_global timing_enable_path_group_priority $gpsPrivate::optSave_ctePGPriority
+set_global timing_constraint_enable_group_path_resetting $gpsPrivate::optSave_ctePGResetting
+getPlaceMode -quiet -tdgpAdjustNetWeightBySlack
+get_ccopt_clock_trees *
+getPlaceMode -exp_insert_guidance_clock_tree -quiet
+getPlaceMode -exp_cluster_based_high_fanout_buffering -quiet
+getPlaceMode -place_global_exp_incr_skp_preserve_mode_v2 -quiet
+getPlaceMode -quiet -place_global_exp_netlist_balance_flow
+getPlaceMode -quiet -timingEffort
+getAnalysisMode -quiet -honorClockDomains
+getPlaceMode -honorUserPathGroup -quiet
+getAnalysisMode -quiet -honorClockDomains
+set delaycal_use_default_delay_limit 101
+set delaycal_default_net_delay 0
+set delaycal_default_net_load 0
+set delaycal_default_net_load_ignore_for_ilm 0
+getAnalysisMode -clkSrcPath -quiet
+getAnalysisMode -clockPropagation -quiet
+getAnalysisMode -checkType -quiet
+buildTimingGraph
+getDelayCalMode -ignoreNetLoad -quiet
+getDelayCalMode -ignoreNetLoad -quiet
+setDelayCalMode -ignoreNetLoad true -quiet
+get_global timing_enable_path_group_priority
+get_global timing_constraint_enable_group_path_resetting
+set_global timing_enable_path_group_priority false
+set_global timing_constraint_enable_group_path_resetting false
+getOptMode -allowPreCTSClkSrcPaths -quiet
+set_global _is_ipo_interactive_path_groups 1
+group_path -name in2out_tmp.3696 -from {0x118 } -to 0x11b -ignore_source_of_trigger_arc
+reset_path_group -name in2out_tmp.3696
+set_global _is_ipo_interactive_path_groups 0
+setDelayCalMode -ignoreNetLoad false
+set delaycal_use_default_delay_limit 1000
+set delaycal_default_net_delay 1000ps
+set delaycal_default_net_load 0.5pf
+set delaycal_default_net_load_ignore_for_ilm 0
+all_setup_analysis_views
+getPlaceMode -place_global_exp_ignore_low_effort_path_groups -quiet
+getPlaceMode -exp_slack_driven -quiet
+getPlaceMode -quiet -cong_repair_commit_clock_net_route_attr
+getPlaceMode -enableDbSaveAreaPadding -quiet
+getPlaceMode -quiet -wireLenOptEffort
+setPlaceMode -reset -improveWithPsp
+getPlaceMode -quiet -debugGlobalPlace
+getPlaceMode -congRepair -quiet
+getPlaceMode -fp -quiet
+getPlaceMode -user -rplaceIncrNPClkGateAwareMode
+getPlaceMode -user -congRepairMaxIter
+getPlaceMode -quiet -congRepairPDClkGateMode4
+setPlaceMode -rplaceIncrNPClkGateAwareMode 4
+getPlaceMode -quiet -expCongRepairPDOneLoop
+setPlaceMode -congRepairMaxIter 1
+getPlaceMode -quickCTS -quiet
+get_proto_model -type_match {flex_module flex_instgroup} -committed -name -tcl
+getPlaceMode -congRepairForceTrialRoute -quiet
+getPlaceMode -user -congRepairForceTrialRoute
+setPlaceMode -congRepairForceTrialRoute true
+::goMC::is_advanced_metrics_collection_enabled
+congRepair
+::goMC::is_advanced_metrics_collection_enabled
+::goMC::is_advanced_metrics_collection_enabled
+::goMC::is_advanced_metrics_collection_enabled
+setPlaceMode -reset -congRepairForceTrialRoute
+getPlaceMode -quiet -congRepairPDClkGateMode4
+setPlaceMode -reset -rplaceIncrNPClkGateAwareMode
+setPlaceMode -reset -congRepairMaxIter
+getPlaceMode -congRepairCleanupPadding -quiet
+getPlaceMode -quiet -wireLenOptEffort
+all_setup_analysis_views
+getPlaceMode -exp_slack_driven -quiet
+set_global timing_enable_path_group_priority $gpsPrivate::optSave_ctePGPriority
+set_global timing_constraint_enable_group_path_resetting $gpsPrivate::optSave_ctePGResetting
+getPlaceMode -place_global_exp_incr_skp_preserve_mode_v2 -quiet
+getPlaceMode -quiet -place_global_exp_netlist_balance_flow
+getPlaceMode -quiet -timingEffort
+getPlaceMode -tdgpDumpStageTiming -quiet
+getPlaceMode -quiet -tdgpAdjustNetWeightBySlack
+getPlaceMode -trimView -quiet
+getOptMode -quiet -viewOptPolishing
+getOptMode -quiet -fastViewOpt
+spInternalUse deleteViewOptManager
+spInternalUse tdgp clearSkpData
+setAnalysisMode -clkSrcPath true -clockPropagation sdcControl
+getPlaceMode -exp_slack_driven -quiet
+setExtractRCMode -engine preRoute
+setPlaceMode -reset -relaxSoftBlockageMode
+setPlaceMode -reset -ignoreScan
+setPlaceMode -reset -repairPlace
+getPlaceMode -quiet -NMPsuppressInfo
+setvar spgSpeedupBuildVSM 0
+getPlaceMode -macroPlaceMode -quiet
+getPlaceMode -exp_slack_driven -quiet
+getPlaceMode -enableDistPlace -quiet
+getPlaceMode -place_global_ignore_spare -quiet
+getPlaceMode -tdgpMemFlow -quiet
+setPlaceMode -reset -resetCombineRFLevel
+getPlaceMode -enableDistPlace -quiet
+getPlaceMode -quiet -clusterMode
+getPlaceMode -quiet -place_global_exp_solve_unbalance_path
+getPlaceMode -enableDistPlace -quiet
+setPlaceMode -reset -expHiddenFastMode
+getPlaceMode -tcg2Pass -quiet
+getPlaceMode -quiet -wireLenOptEffort
+getPlaceMode -fp -quiet
+getPlaceMode -fastfp -quiet
+getPlaceMode -doRPlace -quiet
+getPlaceMode -RTCPlaceDesignFlow -quiet
+getPlaceMode -quickCTS -quiet
+set spgFlowInInitialPlace 0
+getPlaceMode -user -maxRouteLayer
+spInternalUse TDGP resetIgnoreNetLoad
+getPlaceMode -place_global_exp_balance_pipeline -quiet
+getDesignMode -quiet -flowEffort
+report_message -end_cmd
+um::create_snapshot -name final -auto min
+um::pop_snapshot_stack
+um::create_snapshot -name place_design
+getPlaceMode -exp_slack_driven -quiet
+setExtractRCMode -engine preRoute
+optDesign -preCTS -outDir reports/preCTSTimingReports
+saveDesign db/bkadder_place.enc
+setAnalysisMode -analysisType onChipVariation
+setAnalysisMode -cppr both
+optDesign -postCTS -outDir reports/postCTSTimingReports
+optDesign -postCTS -hold -outDir reports/postCTSTimingReports
+saveDesign db/bkadder_cts.enc
+setNanoRouteMode -quiet -timingEngine {}
+setNanoRouteMode -quiet -routeWithTimingDriven 1
+setNanoRouteMode -quiet -routeWithSiDriven 1
+setNanoRouteMode -quiet -routeWithSiPostRouteFix 0
+setNanoRouteMode -quiet -routeTopRoutingLayer default
+setNanoRouteMode -quiet -routeBottomRoutingLayer default
+setNanoRouteMode -quiet -drouteEndIteration default
+setNanoRouteMode -quiet -routeWithTimingDriven true
+setNanoRouteMode -quiet -routeWithSiDriven true
+routeDesign -globalDetail
+setExtractRCMode -engine postRoute
+setExtractRCMode -effortLevel medium
+setDelayCalMode -engine default -SIAware true
+optDesign -postRoute -outDir reports/postRouteTimingReports
+optDesign -postRoute -hold -outDir reports/postRouteTimingReports
+setDelayCalMode -SIAware false
+setDelayCalMode -engine AAE
+timeDesign -signoff -si -outDir reports/signoffTimingReports
+timeDesign -signoff -si -hold -outDir reports/signoffTimingReports
+addFiller -cell {FILLCELL_X32 FILLCELL_X16 FILLCELL_X8 FILLCELL_X4 FILLCELL_X2  FILLCELL_X1}
+saveDesign db/bkadder_postroute.enc
+verifyConnectivity -type all -report reports/bkadder.connectivity.rpt
+summaryReport -outdir reports/summaryReport
+report_area -out_file reports/bkadder.routed.area.rpt
+report_power -outfile reports/bkadder.routed.power.rpt
+report_timing -machine_readable -max_paths 100 -max_slack 100.0 -min_slack -100.0 -late > bkadder_setup.mtarpt
+report_timing -machine_readable -max_paths 100 -max_slack 100.0 -min_slack -100.0 -early > bkadder_hold.mtarpt
+rcOut -spef results/bkadder.spef -rc_corner rc_worst
+write_sdf results/bkadder.sdf
+saveNetlist results/bkadder.routed.v
+streamOut results/bkadder.gds -mapFile streamOut.map -merge /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/gds/NangateOpenCellLibrary.gds -stripes 1 -units 10000 -mode ALL
+zoomBox 30.71850 6.01400 44.52300 13.19100
+zoomBox 26.62000 2.12550 53.06550 15.87450
+zoomBox 8.07750 -11.06600 78.19750 25.38950
+zoomBox -10.62750 -24.40050 103.55200 34.96150
+zoomBox -9.80400 -17.39900 87.24850 33.05850
+zoomBox -9.10400 -11.44800 73.39100 31.44100
+zoomBox -7.56600 1.56450 43.09700 27.90400
+zoomBox -7.19400 4.67100 35.86950 27.05950
+zoomBox -7.56600 1.56450 43.09700 27.90400
+zoomBox -12.98500 -1.77950 46.61850 29.20850
+zoomBox -23.26800 -4.61400 46.85400 31.84250
+zoomBox -5.22100 1.38800 45.44250 27.72800
+zoomBox 1.82400 3.73200 44.88800 26.12100
+zoomBox 14.18350 8.48550 40.63000 22.23500
+zoomBox 19.28600 11.47450 35.52750 19.91850
+zoomBox 3.98350 3.13400 47.04850 25.52350
+zoomBox -0.35200 0.76450 50.31250 27.10500
+zoomBox -5.45250 -2.02300 54.15300 28.96600
+zoomBox -5.02250 1.45400 45.64200 27.79450
+zoomBox -5.45250 -2.02300 54.15300 28.96600
+selectVia 3.4900 19.8200 4.9900 20.2200 7 VDD
+deselectAll
+zoomBox -13.49400 -5.78200 56.63000 30.67550
+zoomBox -22.95450 -10.20450 59.54400 32.68650
+zoomBox -13.45300 -5.07400 56.67100 31.38350
+zoomBox -5.38550 -0.71300 54.22000 30.27600
+zoomBox -2.05700 0.74700 48.60800 27.08800
+zoomBox 1.94400 4.17150 33.05950 20.34850
+zoomBox 7.43200 6.65000 23.67550 15.09500
+panPage 0 -1
+panPage 0 -1
+panPage -1 0
+panPage -1 0
+panPage 0 1
+zoomBox -3.61700 3.44850 15.49350 13.38400
+zoomBox -6.95250 1.73800 19.49850 15.49000
+zoomBox -11.56900 -0.62900 25.04100 18.40450
+zoomBox -14.50450 -2.13450 28.56600 20.25800
+panPage 1 0
+panPage 1 0
+panPage 1 0
+panPage -1 0
+panPage -1 0
+panPage 0 1
+panPage 0 1
+panPage 0 1
+zoomBox 2.76650 19.16600 39.37650 38.19950
+zoomBox 9.60700 20.96900 36.05750 34.72050
+zoomBox 16.47850 22.77950 32.72400 31.22550
+zoomBox 21.70600 24.15650 30.18750 28.56600
+zoomBox 23.90900 24.73800 29.11800 27.44600
+zoomBox 25.26200 25.09600 28.46100 26.75900
+zoomBox 26.09250 25.31550 28.05750 26.33700
+zoomBox 26.29950 25.40850 27.71900 26.14650
+zoomBox 26.51400 25.61500 27.38650 26.06850
+zoomBox 26.64550 25.74100 27.18200 26.02000
+zoomBox 26.45000 25.56700 27.48000 26.10250
+zoomBox 25.09800 24.36100 29.55000 26.67550
+zoomBox 24.78800 24.08400 30.02550 26.80700
+zoomBox 22.89500 22.39350 32.92850 27.61000
+zoomBox 17.93650 17.96000 40.55050 29.71700
+panPage -1 0
+panPage -1 0
+panPage 0 -1
+zoomBox 5.23550 17.05150 19.12350 24.27200
+zoomBox 6.33600 18.54350 14.86550 22.97800
+panPage -1 0
+zoomBox 4.20850 18.92950 11.45900 22.69900
+zoomBox 1.10500 16.30650 17.44750 24.80300
+zoomBox 0.12400 15.48150 19.35100 25.47750
+zoomBox -3.98350 12.02550 27.32450 28.30250
+panPage 1 0
+zoomBox 4.92750 8.58550 48.26100 31.11450
+panPage -1 0
+panPage 0 -1
+panPage 0 -1
+panPage 0 1
+panPage 0 1
+zoomBox 5.41750 14.79950 24.64600 24.79650
+zoomBox 9.56350 16.70050 21.37250 22.84000
+zoomBox 14.35050 18.88000 17.56950 20.55350
+zoomBox 15.04000 19.19200 17.01850 20.22050
+zoomBox 14.84550 19.10500 17.17350 20.31550
+zoomBox 14.34700 18.88350 17.57050 20.55950
+zoomBox 14.03050 18.74300 17.82300 20.71450
+zoomBox 12.70400 18.15350 18.88050 21.36450
+zoomBox 12.09700 17.88400 19.36400 21.66200
+zoomBox 11.38350 17.56700 19.93300 22.01200
+zoomBox 10.54400 17.19400 20.60250 22.42350
+zoomBox 9.55650 16.75550 21.39000 22.90750
+zoomBox 8.39450 16.23900 22.31650 23.47700
+zoomBox 5.41900 14.91700 24.68900 24.93550
+zoomBox -1.31750 11.92500 30.06050 28.23850
+zoomBox -8.02350 8.94650 35.40700 31.52600
+zoomBox -17.30500 4.82450 42.80750 36.07700
+panPage 1 0
+panPage 0 -1
+panPage -1 0
+panPage -1 0
+panPage 1 0
+panPage 1 0
+panPage 0 1
+panPage -1 0
+zoomBox -2.22450 14.40200 29.15550 30.71650
+zoomBox 1.08200 17.18150 23.75450 28.96900
+zoomBox -1.30700 15.97700 25.36750 29.84500
+zoomBox -11.31450 10.93150 32.12150 33.51400
+zoomBox -21.24750 5.73000 38.87250 36.98650
+panPage 1 0
+panPage 0 -1
+panPage -1 0
+panPage 0 1
+panPage 1 0
+panPage -1 0
+panPage 0 -1
+panPage 0 1
+panPage 1 0
+panPage -1 0
+panPage 1 0
+panPage 0 -1
+panPage 0 1
+panPage -1 0
+panPage 1 0
+panPage 0 -1
+panPage -1 0
+panPage 0 1
+panPage 1 0
+getAnalysisMode -checkType
+load_timing_debug_report -name default_report bkadder_setup.mtarpt
+fit
+getAnalysisMode -checkType
+load_timing_debug_report -name default_report bkadder_hold.mtarpt

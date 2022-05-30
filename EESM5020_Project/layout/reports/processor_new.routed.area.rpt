@@ -1,0 +1,25 @@
+    Hinst Name       Module Name          Inst Count           Total Area
+----------------------------------------------------------------------
+processor                                       2769             6038.200
+ ALU                 ALU                         258              326.382
+  ALU/r398           ALU_DW01_add_0                9               32.452
+  ALU/r399           ALU_DW01_sub_0               12               31.122
+ IDEX                IDEX                         75              237.006
+ IFID                IFID                         48              115.178
+ MEMWB               MEMWB                        21              111.720
+ alumux              mux2to1_2                    14               11.704
+ control             Control                      36               30.856
+ data_mem            data_memory                1561             3806.726
+ exmem               EXMEM                        23              122.360
+ forward             forwardunit                  26               29.260
+ hazard              hazardUnit                   12               14.098
+ immgen              Imm_gen                      10               10.108
+ instruction_mem     instructionMemory            30               26.068
+ muxBranch           mux2to1_0                    16               14.896
+ muxDataMem          mux2to1_1                    17               15.428
+ muxEX_Bottom        mux4to1_1                    29               29.260
+ muxEX_top           mux4to1_0                    29               29.260
+ muxhazard           muxHazard                     8                7.980
+ pc                  pc                           27               48.944
+ regdstmux           mux2to1_5bit                  7                5.586
+ register            registerFile                517             1040.326

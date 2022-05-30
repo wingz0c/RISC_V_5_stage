@@ -1,0 +1,410 @@
+{
+    "pc": [
+        "pc",
+        "EJdGq",
+        "module",
+        6
+    ],
+    "instructionMemory": [
+        "instructionMemory",
+        "qFMgc",
+        "module",
+        4
+    ],
+    "IFID": [
+        "IFID",
+        "ixjLG",
+        "module",
+        3
+    ],
+    "hazardUnit": [
+        "hazardUnit",
+        "V6PtD",
+        "module",
+        2
+    ],
+    "registerFile": [
+        "registerFile",
+        "tHSNv",
+        "module",
+        14
+    ],
+    "Control": [
+        "Control",
+        "cnH11",
+        "module",
+        15
+    ],
+    "mux2to1_0": [
+        "mux2to1_0",
+        "Gwdi6",
+        "module",
+        16
+    ],
+    "Imm_gen": [
+        "Imm_gen",
+        "uUycE",
+        "module",
+        17
+    ],
+    "muxHazard": [
+        "muxHazard",
+        "D3fLi",
+        "module",
+        18
+    ],
+    "mux4to1_0": [
+        "mux4to1_0",
+        "W7xVB",
+        "module",
+        19
+    ],
+    "mux4to1_1": [
+        "mux4to1_1",
+        "BsrHs",
+        "module",
+        20
+    ],
+    "IDEX": [
+        "IDEX",
+        "LhCAw",
+        "module",
+        21
+    ],
+    "EXMEM": [
+        "EXMEM",
+        "xcBQP",
+        "module",
+        22
+    ],
+    "mux2to1_2": [
+        "mux2to1_2",
+        "KPxNH",
+        "module",
+        23
+    ],
+    "mux2to1_5bit": [
+        "mux2to1_5bit",
+        "RItnb",
+        "module",
+        24
+    ],
+    "ALU_DW01_sub_0": [
+        "ALU_DW01_sub_0",
+        "aC2UT",
+        "module",
+        25
+    ],
+    "ALU_DW01_add_0": [
+        "ALU_DW01_add_0",
+        "PigsG",
+        "module",
+        26
+    ],
+    "ALU": [
+        "ALU",
+        "trjvP",
+        "module",
+        27
+    ],
+    "forwardunit": [
+        "forwardunit",
+        "IpbsK",
+        "module",
+        28
+    ],
+    "data_memory": [
+        "data_memory",
+        "ZQEUT",
+        "module",
+        29
+    ],
+    "MEMWB": [
+        "MEMWB",
+        "bacLa",
+        "module",
+        30
+    ],
+    "mux2to1_1": [
+        "mux2to1_1",
+        "gDEUP",
+        "module",
+        31
+    ],
+    "processor": [
+        "processor",
+        "FAtab",
+        "module",
+        32
+    ],
+    "tb": [
+        "tb",
+        "g7hgQ",
+        "module",
+        33
+    ],
+    "AND2_X1": [
+        "AND2_X1",
+        "VuJYN",
+        "module",
+        34
+    ],
+    "AND2_X2": [
+        "AND2_X2",
+        "VVSsb",
+        "module",
+        35
+    ],
+    "AND3_X1": [
+        "AND3_X1",
+        "NvMsv",
+        "module",
+        36
+    ],
+    "AND4_X1": [
+        "AND4_X1",
+        "RbQQf",
+        "module",
+        37
+    ],
+    "AOI21_X1": [
+        "AOI21_X1",
+        "vC1RA",
+        "module",
+        38
+    ],
+    "AOI221_X1": [
+        "AOI221_X1",
+        "Yb0mY",
+        "module",
+        39
+    ],
+    "AOI222_X1": [
+        "AOI222_X1",
+        "wZ8FS",
+        "module",
+        40
+    ],
+    "AOI22_X1": [
+        "AOI22_X1",
+        "Mqjch",
+        "module",
+        41
+    ],
+    "BUF_X1": [
+        "BUF_X1",
+        "YsdDm",
+        "module",
+        42
+    ],
+    "BUF_X2": [
+        "BUF_X2",
+        "TLjwp",
+        "module",
+        43
+    ],
+    "CLKBUF_X1": [
+        "CLKBUF_X1",
+        "Qr2gM",
+        "module",
+        44
+    ],
+    "CLKBUF_X2": [
+        "CLKBUF_X2",
+        "JgbB5",
+        "module",
+        45
+    ],
+    "CLKBUF_X3": [
+        "CLKBUF_X3",
+        "I3ZTt",
+        "module",
+        46
+    ],
+    "DFFR_X1": [
+        "DFFR_X1",
+        "Nb9JU",
+        "module",
+        47
+    ],
+    "DFFS_X1": [
+        "DFFS_X1",
+        "uJYV5",
+        "module",
+        48
+    ],
+    "DFF_X1": [
+        "DFF_X1",
+        "ZcSdx",
+        "module",
+        49
+    ],
+    "DLH_X1": [
+        "DLH_X1",
+        "iFUMs",
+        "module",
+        50
+    ],
+    "FA_X1": [
+        "FA_X1",
+        "zGtw9",
+        "module",
+        51
+    ],
+    "INV_X1": [
+        "INV_X1",
+        "tIkV7",
+        "module",
+        52
+    ],
+    "INV_X2": [
+        "INV_X2",
+        "cshRd",
+        "module",
+        53
+    ],
+    "MUX2_X1": [
+        "MUX2_X1",
+        "cZsd2",
+        "module",
+        54
+    ],
+    "NAND2_X1": [
+        "NAND2_X1",
+        "Q9D3j",
+        "module",
+        55
+    ],
+    "NAND3_X1": [
+        "NAND3_X1",
+        "dTgYn",
+        "module",
+        56
+    ],
+    "NAND4_X1": [
+        "NAND4_X1",
+        "KHv0i",
+        "module",
+        57
+    ],
+    "NOR2_X1": [
+        "NOR2_X1",
+        "niDbq",
+        "module",
+        58
+    ],
+    "NOR2_X2": [
+        "NOR2_X2",
+        "rTDQE",
+        "module",
+        59
+    ],
+    "NOR3_X1": [
+        "NOR3_X1",
+        "c6YDM",
+        "module",
+        60
+    ],
+    "NOR3_X2": [
+        "NOR3_X2",
+        "punbe",
+        "module",
+        61
+    ],
+    "NOR4_X1": [
+        "NOR4_X1",
+        "Y0MNu",
+        "module",
+        62
+    ],
+    "OAI211_X1": [
+        "OAI211_X1",
+        "vIxGc",
+        "module",
+        63
+    ],
+    "OAI21_X1": [
+        "OAI21_X1",
+        "weLWf",
+        "module",
+        13
+    ],
+    "OAI221_X1": [
+        "OAI221_X1",
+        "fmibn",
+        "module",
+        64
+    ],
+    "OAI22_X1": [
+        "OAI22_X1",
+        "DehPx",
+        "module",
+        65
+    ],
+    "OR2_X1": [
+        "OR2_X1",
+        "ZF22v",
+        "module",
+        66
+    ],
+    "OR3_X1": [
+        "OR3_X1",
+        "BUyxF",
+        "module",
+        67
+    ],
+    "OR4_X1": [
+        "OR4_X1",
+        "A8PEV",
+        "module",
+        68
+    ],
+    "XNOR2_X1": [
+        "XNOR2_X1",
+        "piG48",
+        "module",
+        5
+    ],
+    "XOR2_X1": [
+        "XOR2_X1",
+        "tnN2P",
+        "module",
+        69
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        7
+    ],
+    "ng_xbuf": [
+        "ng_xbuf",
+        "Fdess",
+        "udp",
+        70
+    ],
+    "seq_DFFR_X1": [
+        "seq_DFFR_X1",
+        "fTq4m",
+        "udp",
+        71
+    ],
+    "seq_DFFS_X1": [
+        "seq_DFFS_X1",
+        "u1p1q",
+        "udp",
+        72
+    ],
+    "seq_DFF_X1": [
+        "seq_DFF_X1",
+        "dnrsM",
+        "udp",
+        73
+    ],
+    "seq_DLH_X1": [
+        "seq_DLH_X1",
+        "H7wg2",
+        "udp",
+        74
+    ]
+}

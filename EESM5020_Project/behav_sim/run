@@ -1,0 +1,4 @@
+#!/bin/sh
+
+vcs -full64 ../rtl/processor_new.v ../tb/tb.v +v2k -debug_all -top tb \
+  -timescale=1ns/1ps

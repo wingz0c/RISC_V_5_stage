@@ -1,0 +1,108 @@
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+synopsys::env hasTB
+trigger_hier_stack_context_switch 0
+synUtils::setDVEInitPhase 1
+synopsys::dump -type VPD -file /afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/syn_sim/inter.vpd -locking
+synopsys::dump -autoflush on -fid VPD0
+set ::dve_fid VPD0
+synUtils::setDVEInitPhase 0
+ucliCore::getToolPID
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpcXXnVf
+synUtils::sendTool -active {_icl_start_rpc -version "Q-2020.03-SP1-1_Full64" -sync_file /tmp/vcs_dve_rpc.cmfanab.21163}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.cmfanab.21163}
+config endofsim noexit
+config onfail enable all
+config syscaddplainmembers
+config syscaddsourcenames
+config syscaddstructtypes
+synopsys::listing -disable
+synopsys::dump -add {fir_tb.CLK_PERIOD fir_tb.clk fir_tb.complete fir_tb.data_in fir_tb.data_out fir_tb.enable fir_tb.i fir_tb.rst_n fir_tb.tap } -aggregates  -fid VPD0
+ucliGUI::vpdAddHierarchy -scope fir_tb.uut -depth 1 -file /afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/syn_sim/inter.vpd; synopsys::dump -flush VPD0
+synopsys::dump -add {fir_tb.uut.N1000 fir_tb.uut.N1001 fir_tb.uut.N1002 fir_tb.uut.N1003 fir_tb.uut.N1004 fir_tb.uut.N1005 fir_tb.uut.N1006 fir_tb.uut.N1007 fir_tb.uut.N1008 fir_tb.uut.N1009 fir_tb.uut.N1010 fir_tb.uut.N1011 fir_tb.uut.N1012 fir_tb.uut.N1013 fir_tb.uut.N1014 fir_tb.uut.N506 fir_tb.uut.N507 fir_tb.uut.N508 fir_tb.uut.N509 fir_tb.uut.N510 fir_tb.uut.N511 fir_tb.uut.N512 fir_tb.uut.N513 fir_tb.uut.N514 fir_tb.uut.N515 fir_tb.uut.N516 fir_tb.uut.N517 fir_tb.uut.N518 fir_tb.uut.N519 fir_tb.uut.N520 fir_tb.uut.N521 fir_tb.uut.N530 fir_tb.uut.N531 fir_tb.uut.N532 fir_tb.uut.N533 fir_tb.uut.N534 fir_tb.uut.N535 fir_tb.uut.N536 fir_tb.uut.N537 fir_tb.uut.N538 fir_tb.uut.N539 fir_tb.uut.N540 fir_tb.uut.N541 fir_tb.uut.N542 fir_tb.uut.N543 fir_tb.uut.N544 fir_tb.uut.N545 fir_tb.uut.N547 fir_tb.uut.N548 fir_tb.uut.N549 fir_tb.uut.N550 fir_tb.uut.N551 fir_tb.uut.N552 fir_tb.uut.N553 fir_tb.uut.N554 fir_tb.uut.N555 fir_tb.uut.N556 fir_tb.uut.N557 fir_tb.uut.N558 fir_tb.uut.N559 fir_tb.uut.N560 fir_tb.uut.N561 fir_tb.uut.N562 fir_tb.uut.N619 fir_tb.uut.N620 fir_tb.uut.N621 fir_tb.uut.N622 fir_tb.uut.N623 fir_tb.uut.N624 fir_tb.uut.N625 fir_tb.uut.N626 fir_tb.uut.N627 fir_tb.uut.N628 fir_tb.uut.N629 fir_tb.uut.N630 fir_tb.uut.N631 fir_tb.uut.N632 fir_tb.uut.N633 fir_tb.uut.N634 fir_tb.uut.N635 fir_tb.uut.N706 fir_tb.uut.N707 fir_tb.uut.N708 fir_tb.uut.N709 fir_tb.uut.N710 fir_tb.uut.N711 fir_tb.uut.N712 fir_tb.uut.N713 fir_tb.uut.N714 fir_tb.uut.N715 fir_tb.uut.N716 fir_tb.uut.N717 fir_tb.uut.N718 fir_tb.uut.N719 fir_tb.uut.N720 fir_tb.uut.N721 fir_tb.uut.N722 fir_tb.uut.N746 fir_tb.uut.N747 fir_tb.uut.N748 fir_tb.uut.N749 fir_tb.uut.N750 fir_tb.uut.N751 fir_tb.uut.N752 fir_tb.uut.N753 fir_tb.uut.N754 fir_tb.uut.N755 fir_tb.uut.N756 fir_tb.uut.N757 fir_tb.uut.N758 fir_tb.uut.N759 fir_tb.uut.N760 fir_tb.uut.N761 fir_tb.uut.N762 fir_tb.uut.N783 fir_tb.uut.N784 fir_tb.uut.N785 fir_tb.uut.N786 fir_tb.uut.N787 fir_tb.uut.N788 fir_tb.uut.N789 fir_tb.uut.N790 fir_tb.uut.N791 fir_tb.uut.N792 fir_tb.uut.N793 fir_tb.uut.N794 fir_tb.uut.N795 fir_tb.uut.N796 fir_tb.uut.N797 fir_tb.uut.N798 fir_tb.uut.N799 fir_tb.uut.N800 fir_tb.uut.N895 fir_tb.uut.N896 fir_tb.uut.N897 fir_tb.uut.N898 fir_tb.uut.N899 fir_tb.uut.N900 fir_tb.uut.N901 fir_tb.uut.N902 fir_tb.uut.N903 fir_tb.uut.N904 fir_tb.uut.N905 fir_tb.uut.N906 fir_tb.uut.N907 fir_tb.uut.N908 fir_tb.uut.N909 fir_tb.uut.N910 fir_tb.uut.N911 fir_tb.uut.N912 fir_tb.uut.N998 fir_tb.uut.N999 fir_tb.uut.SYNOPSYS_UNCONNECTED_1 fir_tb.uut.SYNOPSYS_UNCONNECTED_2 fir_tb.uut.SYNOPSYS_UNCONNECTED_3 fir_tb.uut.SYNOPSYS_UNCONNECTED_4 fir_tb.uut.SYNOPSYS_UNCONNECTED_5 fir_tb.uut.SYNOPSYS_UNCONNECTED_6 fir_tb.uut.add_stage1 fir_tb.uut.add_stage2 fir_tb.uut.clk fir_tb.uut.complete fir_tb.uut.data_in fir_tb.uut.data_out fir_tb.uut.data_reg_0 fir_tb.uut.data_reg_1 fir_tb.uut.data_reg_2 fir_tb.uut.data_reg_3 fir_tb.uut.data_reg_4 fir_tb.uut.data_reg_5 fir_tb.uut.enable fir_tb.uut.mul_stage fir_tb.uut.multiplication_0 fir_tb.uut.multiplication_1 fir_tb.uut.multiplication_2 fir_tb.uut.multiplication_3 fir_tb.uut.multiplication_4 fir_tb.uut.multiplication_5 fir_tb.uut.n171 fir_tb.uut.n172 fir_tb.uut.n173 fir_tb.uut.n174 fir_tb.uut.n175 fir_tb.uut.n176 fir_tb.uut.n177 fir_tb.uut.n178 fir_tb.uut.n179 fir_tb.uut.n180 fir_tb.uut.n181 fir_tb.uut.n182 fir_tb.uut.n183 fir_tb.uut.n184 fir_tb.uut.n185 fir_tb.uut.n186 fir_tb.uut.n187 fir_tb.uut.n188 fir_tb.uut.n189 fir_tb.uut.n190 fir_tb.uut.n191 fir_tb.uut.n192 fir_tb.uut.n193 fir_tb.uut.n194 fir_tb.uut.n195 fir_tb.uut.n196 fir_tb.uut.n197 fir_tb.uut.n198 fir_tb.uut.n199 fir_tb.uut.n200 fir_tb.uut.n201 fir_tb.uut.n202 fir_tb.uut.n203 fir_tb.uut.n204 fir_tb.uut.n205 fir_tb.uut.n206 fir_tb.uut.n207 fir_tb.uut.n208 fir_tb.uut.n209 fir_tb.uut.n210 fir_tb.uut.n211 fir_tb.uut.n212 fir_tb.uut.n213 fir_tb.uut.n214 fir_tb.uut.n215 fir_tb.uut.n216 fir_tb.uut.n217 fir_tb.uut.n218 fir_tb.uut.n219 fir_tb.uut.n220 fir_tb.uut.n221 fir_tb.uut.n222 fir_tb.uut.n223 fir_tb.uut.n224 fir_tb.uut.n225 fir_tb.uut.n226 fir_tb.uut.n227 fir_tb.uut.n228 fir_tb.uut.n229 fir_tb.uut.n230 fir_tb.uut.n231 fir_tb.uut.n232 fir_tb.uut.n233 fir_tb.uut.n234 fir_tb.uut.n235 fir_tb.uut.n236 fir_tb.uut.n237 fir_tb.uut.n238 fir_tb.uut.n239 fir_tb.uut.n240 fir_tb.uut.n241 fir_tb.uut.n242 fir_tb.uut.n243 fir_tb.uut.n244 fir_tb.uut.n245 fir_tb.uut.n246 fir_tb.uut.n247 fir_tb.uut.n248 fir_tb.uut.n249 fir_tb.uut.n250 fir_tb.uut.n251 fir_tb.uut.n252 fir_tb.uut.n253 fir_tb.uut.n254 fir_tb.uut.n255 fir_tb.uut.n256 fir_tb.uut.n257 fir_tb.uut.n258 fir_tb.uut.n259 fir_tb.uut.n260 fir_tb.uut.n261 fir_tb.uut.n262 fir_tb.uut.n263 fir_tb.uut.n264 fir_tb.uut.n265 fir_tb.uut.n266 fir_tb.uut.n267 fir_tb.uut.n268 fir_tb.uut.n279 fir_tb.uut.n280 fir_tb.uut.n281 fir_tb.uut.n282 fir_tb.uut.n283 fir_tb.uut.n284 fir_tb.uut.n285 fir_tb.uut.n286 fir_tb.uut.n287 fir_tb.uut.n288 fir_tb.uut.n289 fir_tb.uut.n290 fir_tb.uut.n291 fir_tb.uut.n292 fir_tb.uut.n293 fir_tb.uut.n294 fir_tb.uut.n295 fir_tb.uut.n296 fir_tb.uut.n297 fir_tb.uut.n298 fir_tb.uut.n299 fir_tb.uut.n300 fir_tb.uut.n301 fir_tb.uut.n302 fir_tb.uut.n303 fir_tb.uut.n304 fir_tb.uut.n305 fir_tb.uut.n306 fir_tb.uut.n307 fir_tb.uut.n308 fir_tb.uut.n309 fir_tb.uut.n310 fir_tb.uut.n311 fir_tb.uut.n312 fir_tb.uut.n313 fir_tb.uut.n314 fir_tb.uut.n315 fir_tb.uut.n316 fir_tb.uut.n317 fir_tb.uut.n318 fir_tb.uut.n319 fir_tb.uut.n320 fir_tb.uut.n323 fir_tb.uut.n324 fir_tb.uut.n325 fir_tb.uut.n326 fir_tb.uut.n327 fir_tb.uut.n328 fir_tb.uut.n329 fir_tb.uut.n330 fir_tb.uut.n331 fir_tb.uut.n332 fir_tb.uut.n333 fir_tb.uut.n334 fir_tb.uut.n335 fir_tb.uut.n336 fir_tb.uut.n337 fir_tb.uut.n338 fir_tb.uut.n339 fir_tb.uut.n340 fir_tb.uut.n341 fir_tb.uut.n342 fir_tb.uut.n343 fir_tb.uut.n344 fir_tb.uut.n345 fir_tb.uut.n346 fir_tb.uut.n347 fir_tb.uut.n348 fir_tb.uut.n349 fir_tb.uut.n350 fir_tb.uut.n351 fir_tb.uut.n352 fir_tb.uut.n353 fir_tb.uut.n354 fir_tb.uut.n355 fir_tb.uut.n356 fir_tb.uut.n357 fir_tb.uut.n358 fir_tb.uut.n359 fir_tb.uut.n360 fir_tb.uut.n361 fir_tb.uut.n362 fir_tb.uut.n363 fir_tb.uut.n364 fir_tb.uut.n365 fir_tb.uut.n366 fir_tb.uut.n367 fir_tb.uut.n368 fir_tb.uut.n369 fir_tb.uut.n370 fir_tb.uut.n371 fir_tb.uut.n372 fir_tb.uut.n373 fir_tb.uut.n374 fir_tb.uut.n375 fir_tb.uut.n376 fir_tb.uut.n377 fir_tb.uut.n378 fir_tb.uut.n379 fir_tb.uut.n380 fir_tb.uut.n381 fir_tb.uut.n382 fir_tb.uut.n384 fir_tb.uut.n385 fir_tb.uut.n386 fir_tb.uut.n387 fir_tb.uut.n388 fir_tb.uut.n389 fir_tb.uut.n390 fir_tb.uut.n391 fir_tb.uut.n392 fir_tb.uut.n393 fir_tb.uut.n394 fir_tb.uut.n395 fir_tb.uut.n396 fir_tb.uut.n397 fir_tb.uut.n398 fir_tb.uut.n399 fir_tb.uut.n400 fir_tb.uut.n401 fir_tb.uut.n402 fir_tb.uut.n403 fir_tb.uut.n404 fir_tb.uut.n405 fir_tb.uut.n406 fir_tb.uut.n407 fir_tb.uut.n408 fir_tb.uut.n409 fir_tb.uut.n410 fir_tb.uut.n411 fir_tb.uut.n412 fir_tb.uut.n413 fir_tb.uut.n414 fir_tb.uut.n415 fir_tb.uut.n416 fir_tb.uut.n417 fir_tb.uut.n418 fir_tb.uut.n419 fir_tb.uut.n420 fir_tb.uut.n421 fir_tb.uut.n422 fir_tb.uut.n423 fir_tb.uut.n424 fir_tb.uut.n425 fir_tb.uut.n426 fir_tb.uut.n427 fir_tb.uut.n428 fir_tb.uut.n429 fir_tb.uut.n430 fir_tb.uut.n431 fir_tb.uut.n432 fir_tb.uut.n433 fir_tb.uut.n434 fir_tb.uut.n435 fir_tb.uut.n436 fir_tb.uut.n437 fir_tb.uut.n438 fir_tb.uut.n439 fir_tb.uut.n440 fir_tb.uut.n441 fir_tb.uut.n442 fir_tb.uut.n443 fir_tb.uut.n444 fir_tb.uut.n445 fir_tb.uut.n446 fir_tb.uut.n447 fir_tb.uut.n448 fir_tb.uut.n449 fir_tb.uut.n450 fir_tb.uut.n451 fir_tb.uut.n452 fir_tb.uut.n453 fir_tb.uut.n454 fir_tb.uut.n455 fir_tb.uut.n456 fir_tb.uut.n457 fir_tb.uut.n458 fir_tb.uut.n459 fir_tb.uut.n460 fir_tb.uut.n461 fir_tb.uut.n462 fir_tb.uut.n463 fir_tb.uut.n464 fir_tb.uut.n465 fir_tb.uut.n466 fir_tb.uut.n467 fir_tb.uut.n468 fir_tb.uut.n469 fir_tb.uut.n470 fir_tb.uut.n471 fir_tb.uut.n472 fir_tb.uut.n473 fir_tb.uut.n474 fir_tb.uut.n475 fir_tb.uut.n476 fir_tb.uut.n477 fir_tb.uut.n478 fir_tb.uut.n479 fir_tb.uut.n480 fir_tb.uut.n482 fir_tb.uut.n483 fir_tb.uut.n484 fir_tb.uut.n485 fir_tb.uut.n486 fir_tb.uut.n487 fir_tb.uut.n488 fir_tb.uut.n489 fir_tb.uut.n490 fir_tb.uut.n491 fir_tb.uut.n492 fir_tb.uut.n493 fir_tb.uut.n494 fir_tb.uut.n495 fir_tb.uut.n496 fir_tb.uut.n497 fir_tb.uut.n498 fir_tb.uut.n499 fir_tb.uut.n500 fir_tb.uut.n501 fir_tb.uut.n502 fir_tb.uut.n503 fir_tb.uut.n504 fir_tb.uut.n505 fir_tb.uut.n506 fir_tb.uut.n507 fir_tb.uut.n508 fir_tb.uut.n509 fir_tb.uut.n510 fir_tb.uut.n511 fir_tb.uut.n512 fir_tb.uut.n513 fir_tb.uut.n514 fir_tb.uut.n515 fir_tb.uut.n516 fir_tb.uut.n517 fir_tb.uut.n518 fir_tb.uut.n519 fir_tb.uut.n520 fir_tb.uut.n521 fir_tb.uut.n522 fir_tb.uut.n523 fir_tb.uut.n524 fir_tb.uut.n525 fir_tb.uut.n526 fir_tb.uut.n527 fir_tb.uut.n528 fir_tb.uut.n529 fir_tb.uut.n530 fir_tb.uut.n531 fir_tb.uut.n532 fir_tb.uut.n533 fir_tb.uut.n534 fir_tb.uut.n535 fir_tb.uut.n536 fir_tb.uut.n537 fir_tb.uut.n538 fir_tb.uut.n539 fir_tb.uut.n540 fir_tb.uut.n541 fir_tb.uut.n542 fir_tb.uut.n543 fir_tb.uut.n544 fir_tb.uut.n545 fir_tb.uut.n546 fir_tb.uut.n547 fir_tb.uut.n548 fir_tb.uut.n549 fir_tb.uut.n550 fir_tb.uut.n551 fir_tb.uut.n552 fir_tb.uut.n553 fir_tb.uut.n554 fir_tb.uut.n555 fir_tb.uut.n556 fir_tb.uut.n557 fir_tb.uut.n558 fir_tb.uut.n559 fir_tb.uut.n560 fir_tb.uut.n561 fir_tb.uut.n562 fir_tb.uut.n563 fir_tb.uut.n564 fir_tb.uut.n565 fir_tb.uut.n566 fir_tb.uut.n567 fir_tb.uut.n568 fir_tb.uut.n569 fir_tb.uut.n570 fir_tb.uut.n571 fir_tb.uut.n572 fir_tb.uut.n573 fir_tb.uut.n574 fir_tb.uut.n575 fir_tb.uut.n576 fir_tb.uut.n577 fir_tb.uut.n578 fir_tb.uut.n579 fir_tb.uut.n580 fir_tb.uut.n581 fir_tb.uut.n582 fir_tb.uut.n583 fir_tb.uut.n584 fir_tb.uut.n585 fir_tb.uut.n586 fir_tb.uut.n587 fir_tb.uut.n588 fir_tb.uut.n589 fir_tb.uut.n590 fir_tb.uut.n591 fir_tb.uut.n592 fir_tb.uut.n593 fir_tb.uut.n594 fir_tb.uut.n595 fir_tb.uut.n596 fir_tb.uut.n597 fir_tb.uut.n598 fir_tb.uut.n599 fir_tb.uut.n600 fir_tb.uut.n601 fir_tb.uut.n602 fir_tb.uut.n603 fir_tb.uut.n604 fir_tb.uut.n605 fir_tb.uut.n606 fir_tb.uut.n607 fir_tb.uut.n608 fir_tb.uut.n609 fir_tb.uut.n610 fir_tb.uut.n611 fir_tb.uut.n612 fir_tb.uut.n613 fir_tb.... (3188 chars skipped)
+synopsys::run
+set ucliGUI::state
+set ucliGUI::state
+set synopsys::env(time) 3271650000
+set synopsys::env(time) 6497250200
+set synopsys::env(time) 9805250400
+set synopsys::env(time) 13110850100
+set synopsys::env(time) 16057250700
+set synopsys::env(time) 19130050300
+set synopsys::env(time) 22347450200
+set synopsys::env(time) 25697950400
+set synopsys::env(time) 29018750100
+set synopsys::env(time) 31741750000
+set synopsys::env(time) 34166950100
+set synopsys::env(time) 36680450400
+ucliCore::getToolPID
+ucliCore::stopTool -temp -no_signal
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -resume
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+ucliCore::stopTool -temp -no_signal
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -resume
+set ucliGUI::state
+set ucliGUI::state
+set synopsys::env(time) 41013900000
+ucliCore::getToolPID
+ucliCore::stopTool -temp -no_signal
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -resume
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+ucliCore::stopTool -temp -no_signal
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -resume
+set ucliGUI::state
+set ucliGUI::state
+set synopsys::env(time) 44470450100
+set synopsys::env(time) 47624850600
+set synopsys::env(time) 50032450300
+set synopsys::env(time) 52587850200
+set synopsys::env(time) 55092150400
+set synopsys::env(time) 57649050200
+set synopsys::env(time) 60080350000
+set synopsys::env(time) 62578950100
+ucliCore::getToolPID
+ucliCore::stopTool -temp -no_signal
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -resume
+set ucliGUI::state
+set ucliGUI::state
+set synopsys::env(time) 66137750400
+set synopsys::env(time) 68587050100
+set synopsys::env(time) 71082350300
+set synopsys::env(time) 73806450200
+set synopsys::env(time) 76434300000
+set synopsys::env(time) 78754750100
+set synopsys::env(time) 81239350200
+set synopsys::env(time) 83627050100
+set synopsys::env(time) 85955150700
+set synopsys::env(time) 88622450200
+set synopsys::env(time) 91170100000
+set synopsys::env(time) 93573350000
+set synopsys::env(time) 95956350200
+set synopsys::env(time) 98564850200
+set synopsys::env(time) 101147150100
+set synopsys::env(time) 103644950200
+ucliCore::getToolPID
+ucliCore::stopTool -no_signal
+set ucliGUI::state
+set ucliGUI::state
+ucliGUI::getSignalValues -scope fir_tb -radix {symbolic hexadecimal binary binary binary hexadecimal } -list {{i[31:0]} {data_out[17:0]} {complete[0:0]} clk rst_n {data_in[15:0]} }
+if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+synopsys::finish
+set ucliGUI::state
+set ucliGUI::state
+ucli_exit

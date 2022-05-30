@@ -1,0 +1,84 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2020 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v20.10-p004_1, built Thu May 7 20:02:41 PDT 2020
+Options:	-init scripts/top.tcl -win 
+Date:		Sun Apr 10 21:19:55 2022
+Host:		EEX052 (x86_64 w/Linux 3.10.0-1160.53.1.el7.x86_64) (7cores*14cpus*Common KVM processor 16384KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	20.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Change the soft stacksize limit to 0.2%RAM (128 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+[INFO] Loading PVS 16.15 fill procedures
+Sourcing file "scripts/top.tcl" ...
+<CMD> set init_verilog ../syn/results/bkadder.mapped.v
+<CMD> set init_mmmc_file scripts/mmc2.view
+<CMD> set init_lef_file {/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.tech.lef /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.macro.lef}
+<CMD> set init_pwr_net VDD
+<CMD> set init_gnd_net VSS
+<CMD> init_design
+#% Begin Load MMMC data ... (date=04/10 21:20:50, mem=565.7M)
+**ERROR: (TCLCMD-989):	cannot open SDC file '../syn/results/divider.mapped.sdc' for mode 'constraint_slow'
+**ERROR: (IMPSYT-6692):	Invalid return code while executing 'scripts/top.tcl' was returned and script processing was stopped. Review the following error in 'scripts/top.tcl' then restart.
+Error info: scripts/top.tcl: 
+    while executing
+"create_constraint_mode -name constraint_slow -sdc_files {../syn/results/divider.mapped.sdc}"
+    (file "scripts/mmc2.view" line 7)
+    invoked from within
+"::se_source_orig scripts/mmc2.view"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    (procedure "source" line 176)
+    invoked from within
+"source scripts/mmc2.view"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list source $view_def_to_be_processed]"
+    (procedure "::init_design::process_view_def" line 81)
+    invoked from within
+"::init_design::process_view_def $::init_mmmc_file"
+    (procedure "init_design" line 194)
+    invoked from within
+"init_design"
+    (file "scripts/top.tcl" line 26)
+    invoked from within
+"::se_source_orig scripts/top.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    (procedure "source" line 176)
+    invoked from within
+"source scripts/top.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 source scripts/top.tcl"
+    ("eval" body line 1)
+    invoked from within
+"eval {uplevel #0 source scripts/top.tcl}"
+    (in namespace inscope "::" script line 1)
+    invoked from within
+"namespace inscope :: eval "uplevel #0 source $fileName"".
+<CMD> win
+
+--------------------------------------------------------------------------------
+Exiting Innovus on Sun Apr 10 21:22:13 2022
+  Total CPU time:     0:01:01
+  Total real time:    0:02:20
+  Peak memory (main): 577.12MB
+
+
+*** Memory Usage v#1 (Current mem = 781.176M, initial mem = 268.242M) ***
+*** Message Summary: 1 warning(s), 2 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:56.9, real=0:02:18, mem=781.2M) ---

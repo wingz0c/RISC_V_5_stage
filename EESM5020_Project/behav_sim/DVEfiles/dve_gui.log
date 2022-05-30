@@ -1,0 +1,245 @@
+Warning : License for product VCSRuntime_Net(725) will expire within 1 days, on: 30-may-2022.
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP1-1_Full64; Runtime version Q-2020.03-SP1-1_Full64;  May 30 18:08 2022
+VCD+ Writer Q-2020.03-SP1-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
+The file '/afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/behav_sim/inter.vpd' was opened successfully.
+Out Imm:   x
+Out Imm:   0
+PC:  4 Instruction[  1]:00000000001000000010001101111100 
+Out Imm:   0
+Rs1:  x Rs2:  x ALUResult:  x 
+Rs1:  0 Rs2:  x ALUResult:  x 
+Rs1:  0 Rs2:  0 ALUResult:  x 
+Out Imm:   0
+Rs1:  0 Rs2:  0 ALUResult:  x 
+alu result:   0
+alu result:   0
+alu result:   0
+Out Imm:   0
+Rs1:  x Rs2:  0 ALUResult:  x 
+PC:  8 Instruction[  2]:00000000001000101000001110011011 
+Rs1:  x Rs2:  x ALUResult:  x 
+Out Imm:   0
+Out Imm:   2
+alu result:   x
+Out Imm:   2
+Rs1:  x Rs2:  x ALUResult:  x 
+PC: 12 Instruction[  3]:00000000011000101001001000110110 
+Rs1:  x Rs2:  2 ALUResult:  x 
+Rs1:  x Rs2:  2 ALUResult:  x 
+alu result:   x
+Out Imm:   2
+Rs1:  x Rs2:  2 ALUResult:  x 
+PC:  x Instruction[  X]:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Out Imm:   6
+Rs1:  x Rs2:  2 ALUResult:  x 
+alu result:   x
+Out Imm:   6
+Rs1:  x Rs2:  x ALUResult:  x 
+Out Imm:   x
+Rs1:  x Rs2:  x ALUResult:  x 
+Out Imm:   0
+alu result:   x
+Rs1:  x Rs2:  x ALUResult:  x 
+Rs1:  x Rs2:  x ALUResult:  x 
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+alu result:   x
+Reach time limit, force stop.
+$finish called from file "../tb/tb.v", line 64.
+$finish at simulation time              1000000
+Simulation complete, time is 1000000 ps.

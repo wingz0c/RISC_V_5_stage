@@ -1,0 +1,103 @@
+[04/10 21:19:55      0s] 
+[04/10 21:19:55      0s] Cadence Innovus(TM) Implementation System.
+[04/10 21:19:55      0s] Copyright 2020 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/10 21:19:55      0s] 
+[04/10 21:19:55      0s] Version:	v20.10-p004_1, built Thu May 7 20:02:41 PDT 2020
+[04/10 21:19:55      0s] Options:	-init scripts/top.tcl -win 
+[04/10 21:19:55      0s] Date:		Sun Apr 10 21:19:55 2022
+[04/10 21:19:55      0s] Host:		EEX052 (x86_64 w/Linux 3.10.0-1160.53.1.el7.x86_64) (7cores*14cpus*Common KVM processor 16384KB)
+[04/10 21:19:55      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[04/10 21:19:55      0s] 
+[04/10 21:19:55      0s] License:
+[04/10 21:19:55      0s] 		invs	Innovus Implementation System	20.1	checkout succeeded
+[04/10 21:19:55      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[04/10 21:20:27     18s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+[04/10 21:20:40     28s] @(#)CDS: Innovus v20.10-p004_1 (64bit) 05/07/2020 20:02 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/10 21:20:40     28s] @(#)CDS: NanoRoute 20.10-p004_1 NR200413-0234/20_10-UB (database version 18.20.505) {superthreading v1.69}
+[04/10 21:20:40     28s] @(#)CDS: AAE 20.10-p005 (64bit) 05/07/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/10 21:20:40     28s] @(#)CDS: CTE 20.10-p005_1 () Apr 14 2020 09:14:28 ( )
+[04/10 21:20:40     28s] @(#)CDS: SYNTECH 20.10-b004_1 () Mar 12 2020 22:18:21 ( )
+[04/10 21:20:40     28s] @(#)CDS: CPE v20.10-p006
+[04/10 21:20:40     28s] @(#)CDS: IQuantus/TQuantus 19.1.3-s155 (64bit) Sun Nov 3 18:26:52 PST 2019 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/10 21:20:40     28s] @(#)CDS: OA 22.60-p028 Tue Dec  3 14:08:48 2019
+[04/10 21:20:40     28s] @(#)CDS: SGN 19.10-d001 (24-May-2019) (64 bit executable, Qt5.9.0)
+[04/10 21:20:40     28s] @(#)CDS: RCDB 11.15.0
+[04/10 21:20:40     28s] @(#)CDS: STYLUS 20.10-p002_1 (03/12/2020 10:11 PDT)
+[04/10 21:20:41     28s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_25286_EEX052_cmfanab_R8AwUC.
+
+[04/10 21:20:41     28s] Change the soft stacksize limit to 0.2%RAM (128 mbytes). Set global soft_stack_size_limit to change the value.
+[04/10 21:20:46     31s] 
+[04/10 21:20:46     31s] **INFO:  MMMC transition support version v31-84 
+[04/10 21:20:46     31s] 
+[04/10 21:20:46     31s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/10 21:20:46     31s] <CMD> suppressMessage ENCEXT-2799
+[04/10 21:20:47     32s] <CMD> getVersion
+[04/10 21:20:49     32s] [INFO] Loading PVS 16.15 fill procedures
+[04/10 21:20:49     32s] Sourcing file "scripts/top.tcl" ...
+[04/10 21:20:50     32s] <CMD> set init_verilog ../syn/results/bkadder.mapped.v
+[04/10 21:20:50     32s] <CMD> set init_mmmc_file scripts/mmc2.view
+[04/10 21:20:50     32s] <CMD> set init_lef_file {/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.tech.lef /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Back_End/lef/NangateOpenCellLibrary.macro.lef}
+[04/10 21:20:50     32s] <CMD> set init_pwr_net VDD
+[04/10 21:20:50     32s] <CMD> set init_gnd_net VSS
+[04/10 21:20:50     32s] <CMD> init_design
+[04/10 21:20:50     32s] #% Begin Load MMMC data ... (date=04/10 21:20:50, mem=565.7M)
+[04/10 21:20:50     32s] **ERROR: (TCLCMD-989):	cannot open SDC file '../syn/results/divider.mapped.sdc' for mode 'constraint_slow'
+**ERROR: (IMPSYT-6692):	Invalid return code while executing 'scripts/top.tcl' was returned and script processing was stopped. Review the following error in 'scripts/top.tcl' then restart.
+[04/10 21:20:50     32s] Error info: scripts/top.tcl: 
+[04/10 21:20:50     32s]     while executing
+[04/10 21:20:50     32s] "create_constraint_mode -name constraint_slow -sdc_files {../syn/results/divider.mapped.sdc}"
+[04/10 21:20:50     32s]     (file "scripts/mmc2.view" line 7)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "::se_source_orig scripts/mmc2.view"
+[04/10 21:20:50     32s]     ("uplevel" body line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "uplevel [concat ::se_source_orig $args]"
+[04/10 21:20:50     32s]     (procedure "source" line 176)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "source scripts/mmc2.view"
+[04/10 21:20:50     32s]     ("uplevel" body line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "uplevel #0 [list source $view_def_to_be_processed]"
+[04/10 21:20:50     32s]     (procedure "::init_design::process_view_def" line 81)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "::init_design::process_view_def $::init_mmmc_file"
+[04/10 21:20:50     32s]     (procedure "init_design" line 194)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "init_design"
+[04/10 21:20:50     32s]     (file "scripts/top.tcl" line 26)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "::se_source_orig scripts/top.tcl"
+[04/10 21:20:50     32s]     ("uplevel" body line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "uplevel [concat ::se_source_orig $args]"
+[04/10 21:20:50     32s]     (procedure "source" line 176)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "source scripts/top.tcl"
+[04/10 21:20:50     32s]     ("uplevel" body line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "uplevel #0 source scripts/top.tcl"
+[04/10 21:20:50     32s]     ("eval" body line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "eval {uplevel #0 source scripts/top.tcl}"
+[04/10 21:20:50     32s]     (in namespace inscope "::" script line 1)
+[04/10 21:20:50     32s]     invoked from within
+[04/10 21:20:50     32s] "namespace inscope :: eval "uplevel #0 source $fileName"".
+[04/10 21:20:50     32s] <CMD> win
+[04/10 21:22:13     56s] 
+--------------------------------------------------------------------------------
+Exiting Innovus on Sun Apr 10 21:22:13 2022
+  Total CPU time:     0:01:01
+  Total real time:    0:02:20
+  Peak memory (main): 577.12MB
+
+[04/10 21:22:13     56s] 
+[04/10 21:22:13     56s] *** Memory Usage v#1 (Current mem = 781.176M, initial mem = 268.242M) ***
+[04/10 21:22:13     56s] 
+[04/10 21:22:13     56s] *** Summary of all messages that are not suppressed in this session:
+[04/10 21:22:13     56s] Severity  ID               Count  Summary                                  
+[04/10 21:22:13     56s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[04/10 21:22:13     56s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[04/10 21:22:13     56s] ERROR     TCLCMD-989           1  cannot open SDC file '%s' for mode '%s'  
+[04/10 21:22:13     56s] *** Message Summary: 1 warning(s), 2 error(s)
+[04/10 21:22:13     56s] 
+[04/10 21:22:13     56s] --- Ending "Innovus" (totcpu=0:00:56.9, real=0:02:18, mem=781.2M) ---

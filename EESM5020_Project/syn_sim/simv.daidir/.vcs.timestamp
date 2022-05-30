@@ -1,0 +1,128 @@
+1        
+0 ../syn/results/processor_new.mapped.sdf_c
+38
++define+SDF_FILE=""../syn/results/processor_new.mapped.sdf""
++itf+/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/vcsdp.tab
++memcbk
++neg_tchk
++v2k
++vcsd
++vpi
++warn=noTFIPC
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libvirsim.so /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/liberrorinf.so /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libsnpsmalloc.so /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/include
+-Mxllcflags=
+-debug_access+all+bc
+-debug_region+cell
+-full64
+-gen_obj
+-picarchive
+-timescale=1ns/1ps
+-top
+-v
+/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/bin/vcs1
+tb
+../syn/results/processor_new.mapped.v
+../tb/tb.v
+/afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Verilog/NangateOpenCellLibrary.v
+71
+pvs_install_path=/usr/eelocal/cadence/pvs161
+mraarch=linux
+installdir=/usr/eelocal/synopsys/hspice-vf2011.09/hspice
+XDG_SESSION_ID=30323
+XDG_RUNTIME_DIR=/run/user/60166
+VMR_MODE_FLAG=64
+VMANAGER_PATH=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/e_ex_lib/cdn_vm_ext/e
+VENDOR=unknown
+VCS_TARGET_ARCH=amd64
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_HOME=/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+USE_CALIBRE_64=YES
+UNAME=/bin/uname
+TOOL_HOME=/usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64
+TMIARCH=RH
+SYNTHESIS_HOME=/usr/eelocal/synopsys/syn-vp2019.03-sp5
+SSH_TTY=/dev/pts/2
+SSH_CONNECTION=61.92.116.110 65419 143.89.44.52 22
+SSH_CLIENT=61.92.116.110 65419 22
+SPECMAN_PATH=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/e_ex_lib:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/abv_formal:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/util_lib:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/misc/links:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/ovm_ex_lib/e_ex_lib:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/misc:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/uvm_e_ex_lib/interface_uvc_lib:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/uvm_e_ex_lib/apb_subsystem:/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/soc_verification_lib/uvm_e_ex_lib
+SOCV_KIT_HOME=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit
+SNPS_PLATFORM=linux
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+REMOTEHOST=061092116110.ctinets.com
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+QT_GRAPHICSSYSTEM_CHECKED=1
+QTLIB=/usr/lib64/qt-3.3/lib
+QTINC=/usr/lib64/qt-3.3/include
+QTDIR=/usr/lib64/qt-3.3
+QRC_HOME=/usr/eelocal/cadence/ext191
+PERL_MM_OPT=INSTALL_BASE=/staff/ee/cmfanab/perl5
+PERL_MB_OPT=--install_base /staff/ee/cmfanab/perl5
+PERL_LOCAL_LIB_ROOT=/staff/ee/cmfanab/perl5
+PERL_HOMEDIR=1
+PERL5LIB=/staff/ee/cmfanab/perl5/lib/perl5
+OVA_UUM=0
+OSTYPE=linux
+NCPROTECT_KEYDB=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/misc/ip_keys
+MMSIM_HOME=/usr/eelocal/cadence/mmsim141
+MGLS_LICENSE_FILE=/usr/eelocal/mentor/cal_2014.4_18/aoi_cal_2014.4_18.13/license.dat
+MGC_HOME=/usr/eelocal/mentor/cal_2014.4_18/aoi_cal_2014.4_18.13
+MGC_CALIBRE_PRESERVE_MENU_TRIGGER=
+LM_PROJECT=ECE_DEPT_ALL
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KEYRING:persistent:60166
+KIT_SETUP_SAVE=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit
+KDEDIRS=/usr
+HSP_HOME=/usr/eelocal/synopsys/hspice-vf2011.09/hspice
+HSP_GCC_VERSION=4.2.2
+HSP_GCC=/usr/eelocal/synopsys/hspice-vf2011.09/hspice/GNU/amd64/gcc-4.2.2-static/bin/gcc 
+HSPICE_64=1
+HOSTTYPE=x86_64-linux
+GROUP=ee
+DMS_DESIGN=/usr/eelocal/cadence/incisiv152hf/kits/VerificationKit/designs/socv/ams
+CMIARCH=RH
+CDS_Netlisting_Mode=Analog
+CDS_LOAD_ENV=CSF
+CDS_LIC_ROOT=/usr/eelocal/cadence/license
+CDS_LIC_FILE=27021@eesvr5.ece.ust.hk
+CDS_LICENSE_DIR=/usr/eelocal/cadence/ic617-706/share/license
+CDS_AUTO_64BIT=ALL
+CDSHOME=/usr/eelocal/cadence/ic617-706
+CALIBRE_HOME=/usr/eelocal/mentor/cal_2014.4_18/aoi_cal_2014.4_18.13
+ASSURAHOME=/usr/eelocal/cadence/assura41hf19_616
+ARCH=linux
+0
+6
+1653901219 ../syn/results/processor_new.mapped.sdf
+1456713297 /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Verilog/NangateOpenCellLibrary.v
+1456713297 /afs/ee.ust.hk/staff/ee/dept/public/elec516/eesm_5020_2017spring/eesm_5020/lib/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Verilog/NangateOpenCellLibrary.v
+1653904714 ../tb/tb.v
+1653901218 ../syn/results/processor_new.mapped.v
+1595214649 /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/vcsdp.tab
+4
+1595215504 /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libvirsim.so
+1595215186 /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/liberrorinf.so
+1595215144 /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libsnpsmalloc.so
+1595215184 /usr/eelocal/synopsys/vcs-vq2020.03-sp1-1/linux64/lib/libvfs.so
+1653913658 simv.daidir
+-1 partitionlib

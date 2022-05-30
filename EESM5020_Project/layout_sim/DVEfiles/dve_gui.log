@@ -1,0 +1,17 @@
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP1-1_Full64; Runtime version Q-2020.03-SP1-1_Full64;  Apr 11 00:05 2022
+VCD+ Writer Q-2020.03-SP1-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
+The file '/afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/layout_sim/inter.vpd' was opened successfully.
+56 + 89 + 0: sum = 145, cout = 0
+567 + 450 + 1: sum = 1018, cout = 0
+38500 + 9354 + 0: sum = 47854, cout = 0
+8624350 + 33356750 + 1: sum = 41981101, cout = 0
+4294967295 + 1 + 0: sum = 0, cout = 1
+$finish called from file "../tb/bk_adder_32_tb.v", line 69.
+$finish at simulation time                50000
+Simulation complete, time is 50000 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 50000 ps
+CPU Time:      0.530 seconds;       Data structure size:   0.1Mb
+Mon Apr 11 00:06:57 2022

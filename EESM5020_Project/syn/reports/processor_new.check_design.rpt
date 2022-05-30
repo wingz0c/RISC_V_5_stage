@@ -1,0 +1,119 @@
+ 
+****************************************
+check_design summary:
+Version:     P-2019.03-SP5
+Date:        Mon May 30 17:00:02 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     35
+    Unconnected ports (LINT-28)                                    31
+    Shorted outputs (LINT-31)                                       4
+
+Cells                                                              33
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  8
+    Cells have undriven hier pins (LINT-59)                         8
+
+Nets                                                               27
+    Unloaded nets (LINT-2)                                         19
+    Undriven nets (LINT-3)                                          8
+--------------------------------------------------------------------------------
+
+Warning: In design 'pc', cell 'C36' does not drive any nets. (LINT-1)
+Warning: In design 'Imm_gen', cell 'B_4' does not drive any nets. (LINT-1)
+Warning: In design 'Imm_gen', cell 'B_5' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C493' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C494' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C565' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C566' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C567' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C568' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C569' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C570' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C571' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C586' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C587' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C588' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C589' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'B_29' does not drive any nets. (LINT-1)
+Warning: In design 'processor', net 'alu_zero_out' driven by pin 'ALU/Zero_o' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[0]' driven by pin 'IDEX/IDEX_opCode[0]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[1]' driven by pin 'IDEX/IDEX_opCode[1]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[2]' driven by pin 'IDEX/IDEX_opCode[2]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[3]' driven by pin 'IDEX/IDEX_opCode[3]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[4]' driven by pin 'IDEX/IDEX_opCode[4]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[5]' driven by pin 'IDEX/IDEX_opCode[5]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'idex_Opcode[6]' driven by pin 'IDEX/IDEX_opCode[6]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[0]' driven by pin 'IDEX/IDEX_pc[0]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[1]' driven by pin 'IDEX/IDEX_pc[1]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[2]' driven by pin 'IDEX/IDEX_pc[2]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[3]' driven by pin 'IDEX/IDEX_pc[3]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[4]' driven by pin 'IDEX/IDEX_pc[4]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[5]' driven by pin 'IDEX/IDEX_pc[5]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[6]' driven by pin 'IDEX/IDEX_pc[6]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_idex[7]' driven by pin 'IDEX/IDEX_pc[7]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'mux_hazard_imm_sel[0]' driven by pin 'muxhazard/ImmSel_o[0]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'mux_hazard_imm_sel[1]' driven by pin 'muxhazard/ImmSel_o[1]' has no loads. (LINT-2)
+Warning: In design 'processor', net 'control_pc_src' driven by pin 'control/PCSrc_o' has no loads. (LINT-2)
+Warning: In design 'processor', net 'pc_out_branch[0]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[1]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[2]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[3]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[4]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[5]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[6]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'processor', net 'pc_out_branch[7]' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'pc', port 'clk' is not connected to any nets. (LINT-28)
+Warning: In design 'instructionMemory', port 'clock' is not connected to any nets. (LINT-28)
+Warning: In design 'instructionMemory', port 'programCounter[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'instructionMemory', port 'programCounter[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'instructionMemory', port 'programCounter[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'instructionMemory', port 'programCounter[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'registerFile', port 'rAddr1[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'registerFile', port 'rAddr2[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'Imm_gen', port 'Instr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'ALU', port 'funct7[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'ALU', port 'funct7[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'ALU', port 'funct7[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'ALU', port 'funct7[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'hazardUnit', output port 'pc_stall' is connected directly to output port 'IDEX_flush'. (LINT-31)
+Warning: In design 'hazardUnit', output port 'pc_stall' is connected directly to output port 'IFID_stall'. (LINT-31)
+Warning: In design 'Control', output port 'RegDst_o' is connected directly to output port 'RegWrite_o'. (LINT-31)
+Warning: In design 'Control', output port 'MemRd_o' is connected directly to output port 'MemToReg_o'. (LINT-31)
+Warning: In design 'mux2to1', input pin 'DATA1_7' of leaf cell 'C18' is connected to undriven net 'b[7]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_6' of leaf cell 'C18' is connected to undriven net 'b[6]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_5' of leaf cell 'C18' is connected to undriven net 'b[5]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_4' of leaf cell 'C18' is connected to undriven net 'b[4]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_3' of leaf cell 'C18' is connected to undriven net 'b[3]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_2' of leaf cell 'C18' is connected to undriven net 'b[2]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_1' of leaf cell 'C18' is connected to undriven net 'b[1]'.  (LINT-58)
+Warning: In design 'mux2to1', input pin 'DATA1_0' of leaf cell 'C18' is connected to undriven net 'b[0]'.  (LINT-58)
+Warning: In design 'processor', input pin 'b[7]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[6]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[5]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[4]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[3]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[2]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[1]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+Warning: In design 'processor', input pin 'b[0]' of hierarchical cell 'muxBranch' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1

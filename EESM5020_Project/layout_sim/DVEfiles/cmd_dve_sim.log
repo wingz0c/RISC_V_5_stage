@@ -1,0 +1,35 @@
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+synopsys::env hasTB
+trigger_hier_stack_context_switch 0
+synUtils::setDVEInitPhase 1
+synopsys::dump -type VPD -file /afs/ee.ust.hk/staff/ee/cmfanab/vlsi_project/assignment1/layout_sim/inter.vpd -locking
+synopsys::dump -autoflush on -fid VPD0
+set ::dve_fid VPD0
+synUtils::setDVEInitPhase 0
+ucliCore::getToolPID
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpFghPst
+synUtils::sendTool -active {_icl_start_rpc -version "Q-2020.03-SP1-1_Full64" -sync_file /tmp/vcs_dve_rpc.cmfanab.8737}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.cmfanab.8737}
+config endofsim noexit
+config onfail enable all
+config syscaddplainmembers
+config syscaddsourcenames
+config syscaddstructtypes
+synopsys::listing -disable
+synopsys::dump -add {bk_adder_32_tb.uut.a bk_adder_32_tb.uut.b bk_adder_32_tb.uut.cin bk_adder_32_tb.uut.cout bk_adder_32_tb.uut.sum bk_adder_32_tb.uut.w1 bk_adder_32_tb.uut.w10 bk_adder_32_tb.uut.w11 bk_adder_32_tb.uut.w12 bk_adder_32_tb.uut.w13 bk_adder_32_tb.uut.w14 bk_adder_32_tb.uut.w15 bk_adder_32_tb.uut.w16 bk_adder_32_tb.uut.w17 bk_adder_32_tb.uut.w18 bk_adder_32_tb.uut.w19 bk_adder_32_tb.uut.w2 bk_adder_32_tb.uut.w20 bk_adder_32_tb.uut.w21 bk_adder_32_tb.uut.w22 bk_adder_32_tb.uut.w23 bk_adder_32_tb.uut.w24 bk_adder_32_tb.uut.w25 bk_adder_32_tb.uut.w26 bk_adder_32_tb.uut.w27 bk_adder_32_tb.uut.w28 bk_adder_32_tb.uut.w29 bk_adder_32_tb.uut.w3 bk_adder_32_tb.uut.w30 bk_adder_32_tb.uut.w31 bk_adder_32_tb.uut.w4 bk_adder_32_tb.uut.w5 bk_adder_32_tb.uut.w6 bk_adder_32_tb.uut.w7 bk_adder_32_tb.uut.w8 bk_adder_32_tb.uut.w9 } -aggregates  -fid VPD0
+synopsys::dump -add {bk_adder_32_tb.a bk_adder_32_tb.b bk_adder_32_tb.cin bk_adder_32_tb.cout bk_adder_32_tb.sum } -aggregates  -fid VPD0
+synopsys::run
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+ucliGUI::getSignalValues -scope bk_adder_32_tb.uut -radix {decimal } -list {{sum[31:0]} }
+ucliGUI::getSignalValues -scope bk_adder_32_tb.uut -radix {decimal } -list {{b[31:0]} }
+ucliGUI::getSignalValues -scope bk_adder_32_tb.uut -radix {decimal } -list {{a[31:0]} }
+if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+synopsys::finish
+set ucliGUI::state
+set ucliGUI::state
+ucli_exit
